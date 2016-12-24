@@ -1,0 +1,1479 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf740
+{\fonttbl\f0\fmodern\fcharset0 Courier-Oblique;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red135\green136\blue117;\red234\green234\blue234;\red26\green26\blue26;
+\red0\green0\blue0;\red38\green38\blue38;\red17\green137\blue135;\red53\green65\blue117;\red195\green0\blue49;
+\red135\green135\blue135;\red67\green67\blue67;}
+{\*\expandedcolortbl;;\cssrgb\c60000\c60000\c53333;\cssrgb\c93333\c93333\c93333;\cssrgb\c13333\c13333\c13333;
+\cssrgb\c0\c0\c0;\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c60000\c60000;\cssrgb\c26667\c33333\c53333;\cssrgb\c81569\c6275\c25098;
+\cssrgb\c60000\c60000\c60000;\cssrgb\c33333\c33333\c33333;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i\fs37\fsmilli18667 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 (* Comments in Standard ML begin with (* and end with *).  Comments can be\
+   nested which means that all (* tags must end with a *) tag.  This comment,\
+   for example, contains two nested comments. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* A Standard ML program consists of declarations, e.g. value declarations: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 rent\cf4 \strokec4  = \cf7 \strokec7 1200\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 phone_no\cf4 \strokec4  = \cf7 \strokec7 5551337\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 pi\cf4 \strokec4  = \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 14159\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 negative_number\cf4 \strokec4  = ~\cf7 \strokec7 15\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Yeah, unary minus uses the 'tilde' symbol *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Optionally, you can explicitly declare types. This is not necessary as\
+   ML will automatically figure out the types of your values. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 diameter\cf4 \strokec4  = \cf7 \strokec7 7926\cf4 \strokec4  : 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 e\cf4 \strokec4  = \cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 718\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 name\cf4 \strokec4  = \cf9 \strokec9 "Bobby"\cf4 \strokec4  : 
+\f2\b \cf8 \strokec8 string
+\f1\b0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* And just as importantly, functions: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_large\cf4 \strokec4 (\cf6 \strokec6 x\cf4 \strokec4  : 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4 ) = 
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  > \cf7 \strokec7 37\cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 true\cf4 \strokec4  
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 false\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Floating-point numbers are called "reals". *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 tau\cf4 \strokec4  = \cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  * \cf6 \strokec6 pi\cf4 \strokec4          
+\f0\i \cf2 \strokec2 (* You can multiply two reals *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 twice_rent\cf4 \strokec4  = \cf7 \strokec7 2\cf4 \strokec4  * \cf6 \strokec6 rent\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* You can multiply two ints *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* val meh = 1.25 * 10 *)
+\f1\i0 \cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* But you can't multiply an int and a real *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 yeh\cf4 \strokec4  = \cf7 \strokec7 1\cf4 \strokec4 .\cf7 \strokec7 25\cf4 \strokec4  * (\cf11 \strokec11 Real\cf4 \strokec4 .\cf6 \strokec6 fromInt\cf4 \strokec4  \cf7 \strokec7 10\cf4 \strokec4 ) 
+\f0\i \cf2 \strokec2 (* ...unless you explicitly convert\
+                                      one or the other *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* +, - and * are overloaded so they work for both int and real. *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* The same cannot be said for division which has separate operators: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 real_division\cf4 \strokec4  = \cf7 \strokec7 14\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 /
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* gives 3.5 *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 int_division\cf4 \strokec4   = \cf7 \strokec7 14\cf4 \strokec4  \cf6 \strokec6 div\cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4     
+\f0\i \cf2 \strokec2 (* gives 3, rounding down *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 int_remainder\cf4 \strokec4  = \cf7 \strokec7 14\cf4 \strokec4  
+\f2\b \cf5 \strokec5 mod
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4     
+\f0\i \cf2 \strokec2 (* gives 2, since 3*4 = 12 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* ~ is actually sometimes a function (e.g. when put in front of variables) *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 negative_rent\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 ~(
+\f1\b0 \cf6 \strokec6 rent\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* Would also have worked if rent were a "real" *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* There are also booleans and boolean operators *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 got_milk\cf4 \strokec4  = \cf10 \strokec10 true\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 got_bread\cf4 \strokec4  = \cf10 \strokec10 false\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 has_breakfast\cf4 \strokec4  = \cf6 \strokec6 got_milk\cf4 \strokec4  \cf6 \strokec6 andalso\cf4 \strokec4  \cf6 \strokec6 got_bread\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* 'andalso' is the operator *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 has_something\cf4 \strokec4  = \cf6 \strokec6 got_milk\cf4 \strokec4  \cf6 \strokec6 orelse\cf4 \strokec4  \cf6 \strokec6 got_bread\cf4 \strokec4    
+\f0\i \cf2 \strokec2 (* 'orelse' is the operator *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_sad\cf4 \strokec4  = \cf6 \strokec6 not\cf4 \strokec4 (\cf6 \strokec6 has_something\cf4 \strokec4 )                 
+\f0\i \cf2 \strokec2 (* not is a function *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Many values can be compared using equality operators: = and <> *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 pays_same_rent\cf4 \strokec4  = (\cf6 \strokec6 rent\cf4 \strokec4  = \cf7 \strokec7 1300\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* false *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_wrong_phone_no\cf4 \strokec4  = (\cf6 \strokec6 phone_no\cf4 \strokec4  
+\f2\b \cf5 \strokec5 <>
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 5551337\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* false *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* The operator <> is what most other languages call !=. *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* 'andalso' and 'orelse' are called && and || in many other languages. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Actually, most of the parentheses above are unnecessary.  Here are some\
+   different ways to say some of the things mentioned above: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_large\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  = \cf6 \strokec6 x\cf4 \strokec4  > \cf7 \strokec7 37\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* The parens above were necessary because of ': int' *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_sad\cf4 \strokec4  = \cf6 \strokec6 not\cf4 \strokec4  \cf6 \strokec6 has_something\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 pays_same_rent\cf4 \strokec4  = \cf6 \strokec6 rent\cf4 \strokec4  = \cf7 \strokec7 1300\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Looks confusing, but works *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_wrong_phone_no\cf4 \strokec4  = \cf6 \strokec6 phone_no\cf4 \strokec4  
+\f2\b \cf5 \strokec5 <>
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 5551337\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 negative_rent\cf4 \strokec4  = ~\cf6 \strokec6 rent\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* ~ rent (notice the space) would also work *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Parentheses are mostly necessary when grouping things: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 some_answer\cf4 \strokec4  = \cf6 \strokec6 is_large\cf4 \strokec4  (\cf7 \strokec7 5\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4 )      
+\f0\i \cf2 \strokec2 (* Without parens, this would break! *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* val some_answer = is_large 5 + 5 *)
+\f1\i0 \cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Read as: (is_large 5) + 5. Bad! *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+
+\f0\i \cf2 \strokec2 (* Besides booleans, ints and reals, Standard ML also has chars and strings: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 foo\cf4 \strokec4  = \cf9 \strokec9 "Hello, World!\\n"\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* The \\n is the escape sequence for linebreaks *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 one_letter\cf4 \strokec4  = #\cf9 \strokec9 "a"\cf4 \strokec4         
+\f0\i \cf2 \strokec2 (* That funky syntax is just one character, a *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 combined\cf4 \strokec4  = \cf9 \strokec9 "Hello "\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "there, "\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "fellow!\\n"\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Concatenate strings *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf6 \strokec6 print\cf4 \strokec4  \cf6 \strokec6 foo\cf4 \strokec4        
+\f0\i \cf2 \strokec2 (* You can print things. We are not interested in the *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf6 \strokec6 print\cf4 \strokec4  \cf6 \strokec6 combined\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* result of this computation, so we throw it away. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* val _ = print one_letter *)
+\f1\i0 \cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Only strings can be printed this way *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 bar\cf4 \strokec4  = [ #\cf9 \strokec9 "H"\cf4 \strokec4 , #\cf9 \strokec9 "e"\cf4 \strokec4 , #\cf9 \strokec9 "l"\cf4 \strokec4 , #\cf9 \strokec9 "l"\cf4 \strokec4 , #\cf9 \strokec9 "o"\cf4 \strokec4  ]  
+\f0\i \cf2 \strokec2 (* SML also has lists! *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* val _ = print bar *)
+\f1\i0 \cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Lists are unfortunately not the same as strings *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Fortunately they can be converted.  String is a library and implode and size\
+   are functions available in that library that take strings as argument. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 bob\cf4 \strokec4  = \cf11 \strokec11 String\cf4 \strokec4 .\cf6 \strokec6 implode\cf4 \strokec4  \cf6 \strokec6 bar\cf4 \strokec4           
+\f0\i \cf2 \strokec2 (* gives "Hello" *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 bob_char_count\cf4 \strokec4  = \cf11 \strokec11 String\cf4 \strokec4 .\cf6 \strokec6 size\cf4 \strokec4  \cf6 \strokec6 bob\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* gives 5 *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf6 \strokec6 print\cf4 \strokec4  (\cf6 \strokec6 bob\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "\\n"\cf4 \strokec4 )            
+\f0\i \cf2 \strokec2 (* For good measure, add a linebreak *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can have lists of any kind *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 numbers\cf4 \strokec4  = [\cf7 \strokec7 1\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , \cf7 \strokec7 7\cf4 \strokec4 , \cf7 \strokec7 229\cf4 \strokec4 , \cf7 \strokec7 230\cf4 \strokec4 , \cf7 \strokec7 248\cf4 \strokec4 ]  
+\f0\i \cf2 \strokec2 (* : int list *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 names\cf4 \strokec4  = [ \cf9 \strokec9 "Fred"\cf4 \strokec4 , \cf9 \strokec9 "Jane"\cf4 \strokec4 , \cf9 \strokec9 "Alice"\cf4 \strokec4  ]    
+\f0\i \cf2 \strokec2 (* : string list *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Even lists of lists of things *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 groups\cf4 \strokec4  = [ [ \cf9 \strokec9 "Alice"\cf4 \strokec4 , \cf9 \strokec9 "Bob"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ],
+\f1\b0 \cf4 \strokec4 \
+               [ \cf9 \strokec9 "Huey"\cf4 \strokec4 , \cf9 \strokec9 "Dewey"\cf4 \strokec4 , \cf9 \strokec9 "Louie"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ],
+\f1\b0 \cf4 \strokec4 \
+               [ \cf9 \strokec9 "Bonnie"\cf4 \strokec4 , \cf9 \strokec9 "Clyde"\cf4 \strokec4  ] ]     
+\f0\i \cf2 \strokec2 (* : string list list *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 number_count\cf4 \strokec4  = \cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 length\cf4 \strokec4  \cf6 \strokec6 numbers\cf4 \strokec4      
+\f0\i \cf2 \strokec2 (* gives 7 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can put single values in front of lists of the same kind using\
+   the :: operator, called "the cons operator" (known from Lisp). *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 more_numbers\cf4 \strokec4  = \cf7 \strokec7 13\cf4 \strokec4  :: \cf6 \strokec6 numbers\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* gives [13, 1, 3, 3, 7, ...] *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 more_groups\cf4 \strokec4   = [\cf9 \strokec9 "Batman"\cf4 \strokec4 ,\cf9 \strokec9 "Superman"\cf4 \strokec4 ] :: \cf6 \strokec6 groups\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Lists of the same kind can be appended using the @ ("append") operator *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 guest_list\cf4 \strokec4  = [ \cf9 \strokec9 "Mom"\cf4 \strokec4 , \cf9 \strokec9 "Dad"\cf4 \strokec4  ] 
+\f2\b \cf5 \strokec5 @
+\f1\b0 \cf4 \strokec4  [ \cf9 \strokec9 "Aunt"\cf4 \strokec4 , \cf9 \strokec9 "Uncle"\cf4 \strokec4  ]\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* This could have been done with the "cons" operator.  It is tricky because the\
+   left-hand-side must be an element whereas the right-hand-side must be a list\
+   of those elements. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 guest_list\cf4 \strokec4  = \cf9 \strokec9 "Mom"\cf4 \strokec4  :: \cf9 \strokec9 "Dad"\cf4 \strokec4  :: [ \cf9 \strokec9 "Aunt"\cf4 \strokec4 , \cf9 \strokec9 "Uncle"\cf4 \strokec4  ]\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 guest_list\cf4 \strokec4  = \cf9 \strokec9 "Mom"\cf4 \strokec4  :: (\cf9 \strokec9 "Dad"\cf4 \strokec4  :: (\cf9 \strokec9 "Aunt"\cf4 \strokec4  :: (\cf9 \strokec9 "Uncle"\cf4 \strokec4  :: \cf10 \strokec10 []
+\f2\b \cf5 \strokec5 )))
+\f1\b0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* If you have many lists of the same kind, you can concatenate them all *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 everyone\cf4 \strokec4  = \cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 concat\cf4 \strokec4  \cf6 \strokec6 groups\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* [ "Alice", "Bob", "Huey", ... ] *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* A list can contain any (finite) number of values *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 lots\cf4 \strokec4  = [ \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 7\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4  ]  
+\f0\i \cf2 \strokec2 (* still just an int list *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Lists can only contain one kind of thing... *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* val bad_list = [ 1, "Hello", 3.14159 ] : ??? list *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+
+\f0\i \cf2 \strokec2 (* Tuples, on the other hand, can contain a fixed number of different things *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 person1\cf4 \strokec4  = (\cf9 \strokec9 "Simon"\cf4 \strokec4 , \cf7 \strokec7 28\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 14159\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* : string * int * real *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can even have tuples inside lists and lists inside tuples *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 likes\cf4 \strokec4  = [ (\cf9 \strokec9 "Alice"\cf4 \strokec4 , \cf9 \strokec9 "ice cream"
+\f2\b \cf5 \strokec5 ),
+\f1\b0 \cf4 \strokec4 \
+              (\cf9 \strokec9 "Bob"\cf4 \strokec4 ,   \cf9 \strokec9 "hot dogs"
+\f2\b \cf5 \strokec5 ),
+\f1\b0 \cf4 \strokec4 \
+              (\cf9 \strokec9 "Bob"\cf4 \strokec4 ,   \cf9 \strokec9 "Alice"\cf4 \strokec4 ) ]     
+\f0\i \cf2 \strokec2 (* : (string * string) list *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 mixup\cf4 \strokec4  = [ (\cf9 \strokec9 "Alice"\cf4 \strokec4 , \cf7 \strokec7 39
+\f2\b \cf5 \strokec5 ),
+\f1\b0 \cf4 \strokec4 \
+              (\cf9 \strokec9 "Bob"\cf4 \strokec4 ,   \cf7 \strokec7 37
+\f2\b \cf5 \strokec5 ),
+\f1\b0 \cf4 \strokec4 \
+              (\cf9 \strokec9 "Eve"\cf4 \strokec4 ,   \cf7 \strokec7 41\cf4 \strokec4 ) ]  
+\f0\i \cf2 \strokec2 (* : (string * int) list *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 good_bad_stuff\cf4 \strokec4  =\
+  
+\f2\b \cf5 \strokec5 ([
+\f1\b0 \cf9 \strokec9 "ice cream"\cf4 \strokec4 , \cf9 \strokec9 "hot dogs"\cf4 \strokec4 , \cf9 \strokec9 "chocolate"
+\f2\b \cf5 \strokec5 ],
+\f1\b0 \cf4 \strokec4 \
+   [\cf9 \strokec9 "liver"\cf4 \strokec4 , \cf9 \strokec9 "paying the rent"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ])
+\f1\b0 \cf4 \strokec4            
+\f0\i \cf2 \strokec2 (* : string list * string list *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Records are tuples with named slots *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 rgb\cf4 \strokec4  = \{ \cf6 \strokec6 r\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 23\cf4 \strokec4 , \cf6 \strokec6 g\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 56\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 91\cf4 \strokec4  \} 
+\f0\i \cf2 \strokec2 (* : \{b:real, g:real, r:real\} *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You don't need to declare their slots ahead of time. Records with\
+   different slot names are considered different types, even if their\
+   slot value types match up. For instance... *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Hsl
+\f1\b0 \cf4 \strokec4  = \{ 
+\f2\b \cf8 \strokec8 H
+\f1\b0 \cf4 \strokec4 =\cf7 \strokec7 310\cf4 \strokec4 .\cf7 \strokec7 3\cf4 \strokec4 , \cf6 \strokec6 s\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 51\cf4 \strokec4 , \cf6 \strokec6 l\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 23\cf4 \strokec4  \} 
+\f0\i \cf2 \strokec2 (* : \{H:real, l:real, s:real\} *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Hsv
+\f1\b0 \cf4 \strokec4  = \{ 
+\f2\b \cf8 \strokec8 H
+\f1\b0 \cf4 \strokec4 =\cf7 \strokec7 310\cf4 \strokec4 .\cf7 \strokec7 3\cf4 \strokec4 , \cf6 \strokec6 s\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 51\cf4 \strokec4 , \cf6 \strokec6 v\cf4 \strokec4 =\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 23\cf4 \strokec4  \} 
+\f0\i \cf2 \strokec2 (* : \{H:real, s:real, v:real\} *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* ...trying to evaluate `Hsv = Hsl` or `rgb = Hsl` would give a type\
+   error. While they're all three-slot records composed only of `real`s,\
+   they each have different names for at least some slots. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* You can use hash notation to get values out of tuples. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 H
+\f1\b0 \cf4 \strokec4  = #
+\f2\b \cf8 \strokec8 H
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Hsv
+\f1\b0 \cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* : real *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 s\cf4 \strokec4  = #\cf6 \strokec6 s\cf4 \strokec4  
+\f2\b \cf8 \strokec8 Hsl
+\f1\b0 \cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* : real *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Functions! *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 add_them\cf4 \strokec4  (\cf6 \strokec6 a\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4 ) = \cf6 \strokec6 a\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 b\cf4 \strokec4     
+\f0\i \cf2 \strokec2 (* A simple function that adds two numbers *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 test_it\cf4 \strokec4  = \cf6 \strokec6 add_them\cf4 \strokec4  (\cf7 \strokec7 3\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* gives 7 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Larger functions are usually broken into several lines for readability *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 thermometer\cf4 \strokec4  \cf6 \strokec6 temp\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 temp\cf4 \strokec4  < \cf7 \strokec7 37\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Cold"\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 temp\cf4 \strokec4  > \cf7 \strokec7 37\cf4 \strokec4 \
+         
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Warm"\cf4 \strokec4 \
+         
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Normal"\cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 test_thermo\cf4 \strokec4  = \cf6 \strokec6 thermometer\cf4 \strokec4  \cf7 \strokec7 40\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* gives "Warm" *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* if-sentences are actually expressions and not statements/declarations.\
+   A function body can only contain one expression.  There are some tricks\
+   for making a function do more than just one thing, though. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* A function can call itself as part of its result (recursion!) *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 fibonacci\cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  = \cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4                    
+\f0\i \cf2 \strokec2 (* Base case *)
+\f1\i0 \cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  = \cf7 \strokec7 1\cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4                    
+\f0\i \cf2 \strokec2 (* Base case *)
+\f1\i0 \cf4 \strokec4 \
+    \cf6 \strokec6 fibonacci\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4  - \cf7 \strokec7 1\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 fibonacci\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4  - \cf7 \strokec7 2\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* Recursive case *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Sometimes recursion is best understood by evaluating a function by hand:\
+\
+ fibonacci 4\
+   ~> fibonacci (4 - 1) + fibonacci (4 - 2)\
+   ~> fibonacci 3 + fibonacci 2\
+   ~> (fibonacci (3 - 1) + fibonacci (3 - 2)) + fibonacci 2\
+   ~> (fibonacci 2 + fibonacci 1) + fibonacci 2\
+   ~> ((fibonacci (2 - 1) + fibonacci (2 - 2)) + fibonacci 1) + fibonacci 2\
+   ~> ((fibonacci 1 + fibonacci 0) + fibonacci 1) + fibonacci 2\
+   ~> ((1 + fibonacci 0) + fibonacci 1) + fibonacci 2\
+   ~> ((1 + 0) + fibonacci 1) + fibonacci 2\
+   ~> (1 + fibonacci 1) + fibonacci 2\
+   ~> (1 + 1) + fibonacci 2\
+   ~> 2 + fibonacci 2\
+   ~> 2 + (fibonacci (2 - 1) + fibonacci (2 - 2))\
+   ~> 2 + (fibonacci (2 - 1) + fibonacci (2 - 2))\
+   ~> 2 + (fibonacci 1 + fibonacci 0)\
+   ~> 2 + (1 + fibonacci 0)\
+   ~> 2 + (1 + 0)\
+   ~> 2 + 1\
+   ~> 3  which is the 4th Fibonacci number, according to this definition\
+\
+ *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* A function cannot change the variables it can refer to.  It can only\
+   temporarily shadow them with new variables that have the same names.  In this\
+   sense, variables are really constants and only behave like variables when\
+   dealing with recursion.  For this reason, variables are also called value\
+   bindings. An example of this: *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  = \cf7 \strokec7 42\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 answer\cf4 \strokec4 (\cf6 \strokec6 question\cf4 \strokec4 ) =\
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 question\cf4 \strokec4  = \cf9 \strokec9 "What is the meaning of life, the universe and everything?"\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Fail
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "I'm an exception. Also, I don't know what the answer is."\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  = \cf7 \strokec7 43\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 hmm\cf4 \strokec4  = \cf6 \strokec6 answer\cf4 \strokec4  \cf9 \strokec9 "What is the meaning of life, the universe and everything?"\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Now, hmm has the value 42.  This is because the function answer refers to\
+   the copy of x that was visible before its own function definition. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+
+\f0\i \cf2 \strokec2 (* Functions can take several arguments by taking one tuples as argument: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 solve2\cf4 \strokec4  (\cf6 \strokec6 a\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 , \cf6 \strokec6 c\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 ) =\
+    ( 
+\f2\b \cf5 \strokec5 (~
+\f1\b0 \cf6 \strokec6 b\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf11 \strokec11 Math\cf4 \strokec4 .\cf6 \strokec6 sqrt\cf4 \strokec4 (\cf6 \strokec6 b\cf4 \strokec4  * \cf6 \strokec6 b\cf4 \strokec4  - \cf7 \strokec7 4\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 *\cf6 \strokec6 a\cf4 \strokec4 *\cf6 \strokec6 c
+\f2\b \cf5 \strokec5 ))
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 /
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  * \cf6 \strokec6 a
+\f2\b \cf5 \strokec5 ),
+\f1\b0 \cf4 \strokec4 \
+      
+\f2\b \cf5 \strokec5 (~
+\f1\b0 \cf6 \strokec6 b\cf4 \strokec4  - \cf11 \strokec11 Math\cf4 \strokec4 .\cf6 \strokec6 sqrt\cf4 \strokec4 (\cf6 \strokec6 b\cf4 \strokec4  * \cf6 \strokec6 b\cf4 \strokec4  - \cf7 \strokec7 4\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 *\cf6 \strokec6 a\cf4 \strokec4 *\cf6 \strokec6 c
+\f2\b \cf5 \strokec5 ))
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 /
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  * \cf6 \strokec6 a\cf4 \strokec4 ) )\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Sometimes, the same computation is carried out several times. It makes sense\
+   to save and re-use the result the first time. We can use "let-bindings": *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 solve2\cf4 \strokec4  (\cf6 \strokec6 a\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 , \cf6 \strokec6 c\cf4 \strokec4  : \cf6 \strokec6 real\cf4 \strokec4 ) =\
+    
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 discr\cf4 \strokec4   = \cf6 \strokec6 b\cf4 \strokec4  * \cf6 \strokec6 b\cf4 \strokec4  - \cf7 \strokec7 4\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 *\cf6 \strokec6 a\cf4 \strokec4 *\cf6 \strokec6 c\cf4 \strokec4 \
+        
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 sqr\cf4 \strokec4  = \cf11 \strokec11 Math\cf4 \strokec4 .\cf6 \strokec6 sqrt\cf4 \strokec4  \cf6 \strokec6 discr\cf4 \strokec4 \
+        
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 denom\cf4 \strokec4  = \cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  * \cf6 \strokec6 a\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 in
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 ((~
+\f1\b0 \cf6 \strokec6 b\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 sqr\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 /
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 denom\cf4 \strokec4 ,\
+        
+\f2\b \cf5 \strokec5 (~
+\f1\b0 \cf6 \strokec6 b\cf4 \strokec4  - \cf6 \strokec6 sqr\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 /
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 denom\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 end
+\f1\b0 \cf4 \strokec4 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Pattern matching is a funky part of functional programming.  It is an\
+   alternative to if-sentences.  The fibonacci function can be rewritten: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 fibonacci\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4  = \cf7 \strokec7 0\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Base case *)
+\f1\i0 \cf4 \strokec4 \
+  | \cf6 \strokec6 fibonacci\cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  = \cf7 \strokec7 1\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Base case *)
+\f1\i0 \cf4 \strokec4 \
+  | \cf6 \strokec6 fibonacci\cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  = \cf6 \strokec6 fibonacci\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4  - \cf7 \strokec7 1\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 fibonacci\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4  - \cf7 \strokec7 2\cf4 \strokec4 )  
+\f0\i \cf2 \strokec2 (* Recursive case *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Pattern matching is also possible on composite types like tuples, lists and\
+   records. Writing "fun solve2 (a, b, c) = ..." is in fact a pattern match on\
+   the one three-tuple solve2 takes as argument. Similarly, but less intuitively,\
+   you can match on a list consisting of elements in it (from the beginning of\
+   the list only). *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 first_elem\cf4 \strokec4  (\cf6 \strokec6 x\cf4 \strokec4 ::\cf6 \strokec6 xs\cf4 \strokec4 ) = \cf6 \strokec6 x\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 second_elem\cf4 \strokec4  (\cf6 \strokec6 x\cf4 \strokec4 ::\cf6 \strokec6 y\cf4 \strokec4 ::\cf6 \strokec6 xs\cf4 \strokec4 ) = \cf6 \strokec6 y\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 evenly_positioned_elems\cf4 \strokec4  (\cf6 \strokec6 odd\cf4 \strokec4 ::\cf6 \strokec6 even\cf4 \strokec4 ::\cf6 \strokec6 xs\cf4 \strokec4 ) = \cf6 \strokec6 even\cf4 \strokec4 ::\cf6 \strokec6 evenly_positioned_elems\cf4 \strokec4  \cf6 \strokec6 xs\cf4 \strokec4 \
+  | \cf6 \strokec6 evenly_positioned_elems\cf4 \strokec4  [\cf6 \strokec6 odd\cf4 \strokec4 ] = \cf10 \strokec10 []\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Base case: throw away *)
+\f1\i0 \cf4 \strokec4 \
+  | \cf6 \strokec6 evenly_positioned_elems\cf4 \strokec4  \cf10 \strokec10 []\cf4 \strokec4     = \cf10 \strokec10 []\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Base case *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* When matching on records, you must use their slot names, and you must bind\
+   every slot in a record. The order of the slots doesn't matter though. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 rgbToTup\cf4 \strokec4  \{\cf6 \strokec6 r\cf4 \strokec4 , \cf6 \strokec6 g\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4 \} = (\cf6 \strokec6 r\cf4 \strokec4 , \cf6 \strokec6 g\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4 )    
+\f0\i \cf2 \strokec2 (* fn : \{b:'a, g:'b, r:'c\} -> 'c * 'b * 'a *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 mixRgbToTup\cf4 \strokec4  \{\cf6 \strokec6 g\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4 , \cf6 \strokec6 r\cf4 \strokec4 \} = (\cf6 \strokec6 r\cf4 \strokec4 , \cf6 \strokec6 g\cf4 \strokec4 , \cf6 \strokec6 b\cf4 \strokec4 ) 
+\f0\i \cf2 \strokec2 (* fn : \{b:'a, g:'b, r:'c\} -> 'c * 'b * 'a *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* If called with \{r=0.1, g=0.2, b=0.3\}, either of the above functions\
+   would return (0.1, 0.2, 0.3). But it would be a type error to call them\
+   with \{r=0.1, g=0.2, b=0.3, a=0.4\} *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Higher order functions: Functions can take other functions as arguments.\
+   Functions are just other kinds of values, and functions don't need names\
+   to exist.  Functions without names are called "anonymous functions" or\
+   lambda expressions or closures (since they also have a lexical scope). *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_large\cf4 \strokec4  = (\cf6 \strokec6 fn\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  > \cf7 \strokec7 37\cf4 \strokec4 )\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 add_them\cf4 \strokec4  = \cf6 \strokec6 fn\cf4 \strokec4  (\cf6 \strokec6 a\cf4 \strokec4 ,\cf6 \strokec6 b\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 a\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 b\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 thermometer\cf4 \strokec4  =\
+    \cf6 \strokec6 fn\cf4 \strokec4  \cf6 \strokec6 temp\cf4 \strokec4  
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 temp\cf4 \strokec4  < \cf7 \strokec7 37\cf4 \strokec4 \
+               
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Cold"\cf4 \strokec4 \
+               
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 temp\cf4 \strokec4  > \cf7 \strokec7 37\cf4 \strokec4 \
+                    
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Warm"\cf4 \strokec4 \
+                    
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Normal"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* The following uses an anonymous function directly and gives "ColdWarm" *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 some_result\cf4 \strokec4  = (\cf6 \strokec6 fn\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 thermometer\cf4 \strokec4  (\cf6 \strokec6 x\cf4 \strokec4  - \cf7 \strokec7 5\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 thermometer\cf4 \strokec4  (\cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 5
+\f2\b \cf5 \strokec5 ))
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 37\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Here is a higher-order function that works on lists (a list combinator) *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 readings\cf4 \strokec4  = [ \cf7 \strokec7 34\cf4 \strokec4 , \cf7 \strokec7 39\cf4 \strokec4 , \cf7 \strokec7 37\cf4 \strokec4 , \cf7 \strokec7 38\cf4 \strokec4 , \cf7 \strokec7 35\cf4 \strokec4 , \cf7 \strokec7 36\cf4 \strokec4 , \cf7 \strokec7 37\cf4 \strokec4 , \cf7 \strokec7 37\cf4 \strokec4 , \cf7 \strokec7 37\cf4 \strokec4  ]  
+\f0\i \cf2 \strokec2 (* first an int list *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 opinions\cf4 \strokec4  = \cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 map\cf4 \strokec4  \cf6 \strokec6 thermometer\cf4 \strokec4  \cf6 \strokec6 readings\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* gives [ "Cold", "Warm", ... ] *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* And here is another one for filtering lists *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 warm_readings\cf4 \strokec4  = \cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 filter\cf4 \strokec4  \cf6 \strokec6 is_large\cf4 \strokec4  \cf6 \strokec6 readings\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* gives [39, 38] *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can create your own higher-order functions, too.  Functions can also take\
+   several arguments by "currying" them. Syntax-wise this means adding spaces\
+   between function arguments instead of commas and surrounding parentheses. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 map\cf4 \strokec4  \cf6 \strokec6 f\cf4 \strokec4  \cf10 \strokec10 []\cf4 \strokec4  = \cf10 \strokec10 []\cf4 \strokec4 \
+  | \cf6 \strokec6 map\cf4 \strokec4  \cf6 \strokec6 f\cf4 \strokec4  (\cf6 \strokec6 x\cf4 \strokec4 ::\cf6 \strokec6 xs\cf4 \strokec4 ) = \cf6 \strokec6 f\cf4 \strokec4 (\cf6 \strokec6 x\cf4 \strokec4 ) :: \cf6 \strokec6 map\cf4 \strokec4  \cf6 \strokec6 f\cf4 \strokec4  \cf6 \strokec6 xs\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* map has type ('a -> 'b) -> 'a list -> 'b list and is called polymorphic. *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* 'a is called a type variable. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+
+\f0\i \cf2 \strokec2 (* We can declare functions as infix *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 plus\cf4 \strokec4  = \cf6 \strokec6 add_them\cf4 \strokec4    
+\f0\i \cf2 \strokec2 (* plus is now equal to the same function as add_them *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 infix\cf4 \strokec4  \cf6 \strokec6 plus\cf4 \strokec4             
+\f0\i \cf2 \strokec2 (* plus is now an infix operator *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 seven\cf4 \strokec4  = \cf7 \strokec7 2\cf4 \strokec4  \cf6 \strokec6 plus\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* seven is now bound to 7 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Functions can also be made infix before they are declared *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 infix\cf4 \strokec4  \cf6 \strokec6 minus\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  \cf6 \strokec6 minus\cf4 \strokec4  \cf6 \strokec6 y\cf4 \strokec4  = \cf6 \strokec6 x\cf4 \strokec4  - \cf6 \strokec6 y\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* It becomes a little hard to see what's the argument *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 four\cf4 \strokec4  = \cf7 \strokec7 8\cf4 \strokec4  \cf6 \strokec6 minus\cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* four is now bound to 4 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* An infix function/operator can be made prefix with 'op' *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  = \cf6 \strokec6 op\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 )   
+\f0\i \cf2 \strokec2 (* n is now 10 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* 'op' is useful when combined with high order functions because they expect\
+   functions and not operators as arguments. Most operators are really just\
+   infix functions. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 sum_of_numbers\cf4 \strokec4  = \cf6 \strokec6 foldl\cf4 \strokec4  \cf6 \strokec6 op
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ]\
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Datatypes are useful for creating both simple and complex structures *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 datatype\cf4 \strokec4  \cf6 \strokec6 color\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Red
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 Green
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 Blue
+\f1\b0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Here is a function that takes one of these as argument *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 say\cf4 \strokec4 (\cf6 \strokec6 col\cf4 \strokec4 ) =\
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 col\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Red
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "You are red!"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 col\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Green
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "You are green!"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 col\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Blue
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "You are blue!"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Fail
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Unknown color"\cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf6 \strokec6 print\cf4 \strokec4  (\cf6 \strokec6 say\cf4 \strokec4 (
+\f2\b \cf8 \strokec8 Red
+\f1\b0 \cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "\\n"\cf4 \strokec4 )\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Datatypes are very often used in combination with pattern matching *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 say\cf4 \strokec4  
+\f2\b \cf8 \strokec8 Red
+\f1\b0 \cf4 \strokec4    = \cf9 \strokec9 "You are red!"\cf4 \strokec4 \
+  | \cf6 \strokec6 say\cf4 \strokec4  
+\f2\b \cf8 \strokec8 Green
+\f1\b0 \cf4 \strokec4  = \cf9 \strokec9 "You are green!"\cf4 \strokec4 \
+  | \cf6 \strokec6 say\cf4 \strokec4  
+\f2\b \cf8 \strokec8 Blue
+\f1\b0 \cf4 \strokec4   = \cf9 \strokec9 "You are blue!"\cf4 \strokec4 \
+  | \cf6 \strokec6 say\cf4 \strokec4  _     = 
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Fail
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Unknown color"\cf4 \strokec4 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Here is a binary tree datatype *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 datatype\cf4 \strokec4  
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 btree\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Leaf
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4 \
+                  | 
+\f2\b \cf8 \strokec8 Node
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 btree\cf4 \strokec4  * 
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4  * 
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 btree\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* three-arg constructor *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Here is a binary tree *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 myTree\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Node
+\f1\b0 \cf4 \strokec4  (
+\f2\b \cf8 \strokec8 Leaf
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 9\cf4 \strokec4 , \cf7 \strokec7 8\cf4 \strokec4 , 
+\f2\b \cf8 \strokec8 Node
+\f1\b0 \cf4 \strokec4  (
+\f2\b \cf8 \strokec8 Leaf
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , 
+\f2\b \cf8 \strokec8 Leaf
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 7
+\f2\b \cf5 \strokec5 ))
+\f1\b0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Drawing it, it might look something like...\
+\
+           8\
+          / \\\
+ leaf -> 9   5\
+            / \\\
+   leaf -> 3   7 <- leaf\
+ *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* This function counts the sum of all the elements in a tree *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 count\cf4 \strokec4  (
+\f2\b \cf8 \strokec8 Leaf
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4 ) = \cf6 \strokec6 n\cf4 \strokec4 \
+  | \cf6 \strokec6 count\cf4 \strokec4  (
+\f2\b \cf8 \strokec8 Node
+\f1\b0 \cf4 \strokec4  (\cf6 \strokec6 leftTree\cf4 \strokec4 , \cf6 \strokec6 n\cf4 \strokec4 , \cf6 \strokec6 rightTree
+\f2\b \cf5 \strokec5 ))
+\f1\b0 \cf4 \strokec4  = \cf6 \strokec6 count\cf4 \strokec4  \cf6 \strokec6 leftTree\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 count\cf4 \strokec4  \cf6 \strokec6 rightTree\cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 myTreeCount\cf4 \strokec4  = \cf6 \strokec6 count\cf4 \strokec4  \cf6 \strokec6 myTree\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* myTreeCount is now bound to 32 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Exceptions! *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* Exceptions can be raised/thrown using the reserved word 'raise' *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 calculate_interest\cf4 \strokec4 (\cf6 \strokec6 n\cf4 \strokec4 ) = 
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  < \cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 \
+                            
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Domain
+\f1\b0 \cf4 \strokec4 \
+                            
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  * \cf7 \strokec7 1\cf4 \strokec4 .\cf7 \strokec7 04\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Exceptions can be caught using "handle" *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 balance\cf4 \strokec4  = \cf6 \strokec6 calculate_interest\cf4 \strokec4  ~\cf7 \strokec7 180\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 \
+              \cf6 \strokec6 handle\cf4 \strokec4  
+\f2\b \cf8 \strokec8 Domain
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  ~\cf7 \strokec7 180\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4     
+\f0\i \cf2 \strokec2 (* x now has the value ~180.0 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Some exceptions carry extra information with them *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* Here are some examples of built-in exceptions *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 failing_function\cf4 \strokec4  \cf10 \strokec10 []\cf4 \strokec4     = 
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Empty
+\f1\b0 \cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* used for empty lists *)
+\f1\i0 \cf4 \strokec4 \
+  | \cf6 \strokec6 failing_function\cf4 \strokec4  [\cf6 \strokec6 x\cf4 \strokec4 ]   = 
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Fail
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "This list is too short!"\cf4 \strokec4 \
+  | \cf6 \strokec6 failing_function\cf4 \strokec4  [\cf6 \strokec6 x\cf4 \strokec4 ,\cf6 \strokec6 y\cf4 \strokec4 ] = 
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Overflow
+\f1\b0 \cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* used for arithmetic *)
+\f1\i0 \cf4 \strokec4 \
+  | \cf6 \strokec6 failing_function\cf4 \strokec4  \cf6 \strokec6 xs\cf4 \strokec4     = 
+\f2\b \cf5 \strokec5 raise
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 Fail
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "This list is too long!"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* We can pattern match in 'handle' to make sure\
+   a specfic exception was raised, or grab the message *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 err_msg\cf4 \strokec4  = \cf6 \strokec6 failing_function\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ] \cf6 \strokec6 handle\cf4 \strokec4  
+\f2\b \cf8 \strokec8 Fail
+\f1\b0 \cf4 \strokec4  _ 
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Fail was raised"\cf4 \strokec4 \
+                                          | 
+\f2\b \cf8 \strokec8 Domain
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Domain was raised"\cf4 \strokec4 \
+                                          | 
+\f2\b \cf8 \strokec8 Empty
+\f1\b0 \cf4 \strokec4   
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Empty was raised"\cf4 \strokec4 \
+                                          | _      
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf9 \strokec9 "Unknown exception"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* err_msg now has the value "Unknown exception" because Overflow isn't\
+   listed as one of the patterns -- thus, the catch-all pattern _ is used. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* We can define our own exceptions like this *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 exception
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 MyException
+\f1\b0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 exception
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 MyExceptionWithMessage
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 string
+\f1\b0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 exception
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 SyntaxError
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 string
+\f1\b0 \cf4 \strokec4  * (
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  * 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4 )\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* File I/O! *)
+\f1\i0 \cf4 \strokec4 \
+
+\f0\i \cf2 \strokec2 (* Write a nice poem to a file *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 writePoem\cf4 \strokec4 (\cf6 \strokec6 filename\cf4 \strokec4 ) =\
+    
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 file\cf4 \strokec4  = \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 openOut\cf4 \strokec4 (\cf6 \strokec6 filename\cf4 \strokec4 )\
+        
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 output\cf4 \strokec4 (\cf6 \strokec6 file\cf4 \strokec4 , \cf9 \strokec9 "Roses are red,\\nViolets are blue.\\n"\cf4 \strokec4 )\
+        
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 output\cf4 \strokec4 (\cf6 \strokec6 file\cf4 \strokec4 , \cf9 \strokec9 "I have a gun.\\nGet in the van.\\n"\cf4 \strokec4 )\
+    
+\f2\b \cf5 \strokec5 in
+\f1\b0 \cf4 \strokec4  \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 closeOut\cf4 \strokec4 (\cf6 \strokec6 file\cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 end
+\f1\b0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Read a nice poem from a file into a list of strings *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 readPoem\cf4 \strokec4 (\cf6 \strokec6 filename\cf4 \strokec4 ) =\
+    
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 file\cf4 \strokec4  = \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 openIn\cf4 \strokec4  \cf6 \strokec6 filename\cf4 \strokec4 \
+        
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 poem\cf4 \strokec4  = \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 inputAll\cf4 \strokec4  \cf6 \strokec6 file\cf4 \strokec4 \
+        
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf11 \strokec11 TextIO\cf4 \strokec4 .\cf6 \strokec6 closeIn\cf4 \strokec4  \cf6 \strokec6 file\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 in
+\f1\b0 \cf4 \strokec4  \cf11 \strokec11 String\cf4 \strokec4 .\cf6 \strokec6 tokens\cf4 \strokec4  (\cf6 \strokec6 fn\cf4 \strokec4  \cf6 \strokec6 c\cf4 \strokec4  
+\f2\b \cf5 \strokec5 =>
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 c\cf4 \strokec4  = #\cf9 \strokec9 "\\n"\cf4 \strokec4 ) \cf6 \strokec6 poem\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 end
+\f1\b0 \cf4 \strokec4 \
+\
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  _ = \cf6 \strokec6 writePoem\cf4 \strokec4  \cf9 \strokec9 "roses.txt"\cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 test_poem\cf4 \strokec4  = \cf6 \strokec6 readPoem\cf4 \strokec4  \cf9 \strokec9 "roses.txt"\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* gives [ "Roses are red,",\
+                                                 "Violets are blue.",\
+                                                 "I have a gun.",\
+                                                 "Get in the van." ] *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* We can create references to data which can be updated *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 val
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 counter\cf4 \strokec4  = \cf6 \strokec6 ref\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* Produce a reference with the ref function *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Assign to a reference with the assignment operator *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 set_five\cf4 \strokec4  \cf6 \strokec6 reference\cf4 \strokec4  = \cf6 \strokec6 reference\cf4 \strokec4  := \cf7 \strokec7 5\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Read a reference with the dereference operator *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 equals_five\cf4 \strokec4  \cf6 \strokec6 reference\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 !
+\f1\b0 \cf6 \strokec6 reference\cf4 \strokec4  = \cf7 \strokec7 5\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* We can use while loops for when recursion is messy *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 decrement_to_zero\cf4 \strokec4  \cf6 \strokec6 r\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 !
+\f1\b0 \cf6 \strokec6 r\cf4 \strokec4  < \cf7 \strokec7 0\cf4 \strokec4 \
+                          
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 r\cf4 \strokec4  := \cf7 \strokec7 0\cf4 \strokec4 \
+                          
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 while
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 !
+\f1\b0 \cf6 \strokec6 r\cf4 \strokec4  
+\f2\b \cf5 \strokec5 >=
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 do
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 r\cf4 \strokec4  := 
+\f2\b \cf5 \strokec5 !
+\f1\b0 \cf6 \strokec6 r\cf4 \strokec4  - \cf7 \strokec7 1\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* This returns the unit value (in practical terms, nothing, a 0-tuple) *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* To allow returning a value, we can use the semicolon to sequence evaluations *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 decrement_ret\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  \cf6 \strokec6 y\cf4 \strokec4  = (\cf6 \strokec6 x\cf4 \strokec4  := 
+\f2\b \cf5 \strokec5 !
+\f1\b0 \cf6 \strokec6 x\cf4 \strokec4  - \cf7 \strokec7 1\cf4 \strokec4 ; \cf6 \strokec6 y\cf4 \strokec4 )\
+}

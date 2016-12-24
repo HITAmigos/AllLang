@@ -1,0 +1,673 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf740
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Oblique;\f2\fmodern\fcharset0 Courier-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red234\green234\blue234;\red135\green136\blue117;
+\red195\green0\blue49;\red0\green0\blue0;\red67\green67\blue67;\red38\green38\blue38;\red14\green114\blue164;
+\red17\green137\blue135;\red133\green0\blue2;\red135\green135\blue135;}
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;\cssrgb\c93333\c93333\c93333;\cssrgb\c60000\c60000\c53333;
+\cssrgb\c81569\c6275\c25098;\cssrgb\c0\c0\c0;\cssrgb\c33333\c33333\c33333;\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c52549\c70196;
+\cssrgb\c0\c60000\c60000;\cssrgb\c60000\c0\c0;\cssrgb\c60000\c60000\c60000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\fs37\fsmilli18667 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # 0. Getting set up ====
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ Get set up with IPython and pip install the following: numpy, scipy, pandas,\
+    matplotlib, seaborn, requests.\
+        Make sure to do this tutorial in the IPython notebook so that you get\
+    the inline plots and easy documentation lookup.\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # 1. Data acquisition ====
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ One reason people choose Python over R is that they intend to interact a lot\
+    with the web, either by scraping pages directly or requesting data through\
+    an API. You can do those things in R, but in the context of a project\
+    already using Python, there's a benefit to sticking with one language.\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 requests\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # for HTTP requests (web scraping, APIs)
+\f0\i0 \cf2 \strokec2 \
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 os\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # web scraping
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 r\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 requests
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 get\cf2 \strokec2 (\cf5 \strokec5 "https://github.com/adambard/learnxinyminutes-docs"\cf2 \strokec2 )\
+\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 status_code\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # if 200, request was successful
+\f0\i0 \cf2 \strokec2 \
+\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 text\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # raw page source
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 print
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 text\cf2 \strokec2 )  
+\f1\i \cf4 \strokec4 # prettily formatted
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # save the page source in a file:
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 os
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 getcwd\cf2 \strokec2 ()  
+\f1\i \cf4 \strokec4 # check what's the working directory
+\f0\i0 \cf2 \strokec2 \
+\cf8 \strokec8 f\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  
+\f2\b \cf9 \strokec9 open
+\f0\b0 \cf2 \strokec2 (\cf5 \strokec5 "learnxinyminutes.html"\cf2 \strokec2 , \cf5 \strokec5 "wb"\cf2 \strokec2 )\
+\cf8 \strokec8 f
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 write\cf2 \strokec2 (\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 text
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 encode\cf2 \strokec2 (\cf5 \strokec5 "UTF-8"\cf2 \strokec2 ))\
+\cf8 \strokec8 f
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 close\cf2 \strokec2 ()\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # downloading a csv
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 fp\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 "https://raw.githubusercontent.com/adambard/learnxinyminutes-docs/master/"\cf2 \strokec2 \
+\cf8 \strokec8 fn\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 "pets.csv"\cf2 \strokec2 \
+\cf8 \strokec8 r\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 requests
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 get\cf2 \strokec2 (\cf8 \strokec8 fp\cf2 \strokec2  
+\f2\b \cf6 \strokec6 +
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 fn\cf2 \strokec2 )\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 print
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 text\cf2 \strokec2 )\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 f\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  
+\f2\b \cf9 \strokec9 open
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 fn\cf2 \strokec2 , \cf5 \strokec5 "wb"\cf2 \strokec2 )\
+\cf8 \strokec8 f
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 write\cf2 \strokec2 (\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 text
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 encode\cf2 \strokec2 (\cf5 \strokec5 "UTF-8"\cf2 \strokec2 ))\
+\cf8 \strokec8 f
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 close\cf2 \strokec2 ()\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ for more on the requests module, including APIs, see\
+    http://docs.python-requests.org/en/latest/user/quickstart/\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # 2. Reading a CSV file ====
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ Wes McKinney's pandas package gives you 'DataFrame' objects in Python. If\
+    you've used R, you will be familiar with the idea of the "data.frame" already.\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 pandas\cf2 \strokec2  
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 pd\cf2 \strokec2 \
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 numpy\cf2 \strokec2  
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 np\cf2 \strokec2 \
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 scipy\cf2 \strokec2  
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 sp\cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 pets\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 pd
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 read_csv\cf2 \strokec2 (\cf8 \strokec8 fn\cf2 \strokec2 )\
+\cf8 \strokec8 pets\cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 #        name  age  weight species
+\f0\i0 \cf2 \strokec2 \
+
+\f1\i \cf4 \strokec4 # 0    fluffy    3      14     cat
+\f0\i0 \cf2 \strokec2 \
+
+\f1\i \cf4 \strokec4 # 1  vesuvius    6      23    fish
+\f0\i0 \cf2 \strokec2 \
+
+\f1\i \cf4 \strokec4 # 2       rex    5      34     dog
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ R users: note that Python, like most normal programming languages, starts\
+    indexing from 0. R is the unusual one for starting from 1.\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # two different ways to print out a column
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 age\cf2 \strokec2 \
+\cf8 \strokec8 pets\cf2 \strokec2 [\cf5 \strokec5 "age"\cf2 \strokec2 ]\
+\
+\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 head\cf2 \strokec2 (\cf10 \strokec10 2\cf2 \strokec2 )  
+\f1\i \cf4 \strokec4 # prints first 2 rows
+\f0\i0 \cf2 \strokec2 \
+\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 tail\cf2 \strokec2 (\cf10 \strokec10 1\cf2 \strokec2 )  
+\f1\i \cf4 \strokec4 # prints last row
+\f0\i0 \cf2 \strokec2 \
+\
+\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 name\cf2 \strokec2 [\cf10 \strokec10 1\cf2 \strokec2 ]  
+\f1\i \cf4 \strokec4 # 'vesuvius'
+\f0\i0 \cf2 \strokec2 \
+\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 species\cf2 \strokec2 [\cf10 \strokec10 0\cf2 \strokec2 ]  
+\f1\i \cf4 \strokec4 # 'cat'
+\f0\i0 \cf2 \strokec2 \
+\cf8 \strokec8 pets\cf2 \strokec2 [\cf5 \strokec5 "weight"\cf2 \strokec2 ][\cf10 \strokec10 2\cf2 \strokec2 ]  
+\f1\i \cf4 \strokec4 # 34
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # in R, you would expect to get 3 rows doing this, but here you get 2:
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 age\cf2 \strokec2 [\cf10 \strokec10 0\cf2 \strokec2 :\cf10 \strokec10 2\cf2 \strokec2 ]\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # 0    3
+\f0\i0 \cf2 \strokec2 \
+
+\f1\i \cf4 \strokec4 # 1    6
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf9 \strokec9 sum
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 age\cf2 \strokec2 ) 
+\f2\b \cf6 \strokec6 *
+\f0\b0 \cf2 \strokec2  \cf10 \strokec10 2\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # 28
+\f0\i0 \cf2 \strokec2 \
+
+\f2\b \cf9 \strokec9 max
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 weight\cf2 \strokec2 ) 
+\f2\b \cf6 \strokec6 -
+\f0\b0 \cf2 \strokec2  
+\f2\b \cf9 \strokec9 min
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 weight\cf2 \strokec2 )  
+\f1\i \cf4 \strokec4 # 20
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ If you are doing some serious linear algebra and number-crunching, you may\
+    just want arrays, not DataFrames. DataFrames are ideal for combining columns\
+    of different types.\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # 3. Charts ====
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 matplotlib\cf2 \strokec2  
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 mpl\cf2 \strokec2 \
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 matplotlib.pyplot\cf2 \strokec2  
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 plt\cf2 \strokec2 \
+
+\f2\b \cf6 \strokec6 %
+\f0\b0 \cf8 \strokec8 matplotlib\cf2 \strokec2  \cf8 \strokec8 inline\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # To do data vizualization in Python, use matplotlib
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 hist\cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 age\cf2 \strokec2 );\
+\
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 boxplot\cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 weight\cf2 \strokec2 );\
+\
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 scatter\cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 age\cf2 \strokec2 , \cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 weight\cf2 \strokec2 )\
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 xlabel\cf2 \strokec2 (\cf5 \strokec5 "age"\cf2 \strokec2 )\
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 ylabel\cf2 \strokec2 (\cf5 \strokec5 "weight"\cf2 \strokec2 );\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # seaborn sits atop matplotlib and makes plots prettier
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 seaborn\cf2 \strokec2  
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 sns\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 scatter\cf2 \strokec2 (\cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 age\cf2 \strokec2 , \cf8 \strokec8 pets
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 weight\cf2 \strokec2 )\
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 xlabel\cf2 \strokec2 (\cf5 \strokec5 "age"\cf2 \strokec2 )\
+\cf8 \strokec8 plt
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 ylabel\cf2 \strokec2 (\cf5 \strokec5 "weight"\cf2 \strokec2 );\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # there are also some seaborn-specific plotting functions
+\f0\i0 \cf2 \strokec2 \
+
+\f1\i \cf4 \strokec4 # notice how seaborn automatically labels the x-axis on this barplot
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 sns
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 barplot\cf2 \strokec2 (\cf8 \strokec8 pets\cf2 \strokec2 [\cf5 \strokec5 "age"\cf2 \strokec2 ])\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # R veterans can still use ggplot
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 from
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 ggplot\cf2 \strokec2  
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  
+\f2\b \cf6 \strokec6 *
+\f0\b0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 ggplot\cf2 \strokec2 (\cf8 \strokec8 aes\cf2 \strokec2 (\cf8 \strokec8 x
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf5 \strokec5 "age"\cf2 \strokec2 ,\cf8 \strokec8 y
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf5 \strokec5 "weight"\cf2 \strokec2 ), \cf8 \strokec8 data
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf8 \strokec8 pets\cf2 \strokec2 ) 
+\f2\b \cf6 \strokec6 +
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 geom_point\cf2 \strokec2 () 
+\f2\b \cf6 \strokec6 +
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 labs\cf2 \strokec2 (\cf8 \strokec8 title
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf5 \strokec5 "pets"\cf2 \strokec2 )\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # source: https://pypi.python.org/pypi/ggplot
+\f0\i0 \cf2 \strokec2 \
+\
+
+\f1\i \cf4 \strokec4 # there's even a d3.js port: https://github.com/mikedewar/d3py
+\f0\i0 \cf2 \strokec2 \
+\
+
+\f1\i \cf4 \strokec4 # 4. Simple data cleaning and exploratory analysis ====
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ Here's a more complicated example that demonstrates a basic data\
+    cleaning workflow leading to the creation of some exploratory plots\
+    and the running of a linear regression.\
+        The data set was transcribed from Wikipedia by hand. It contains\
+    all the Holy Roman Emperors and the important milestones in their lives\
+    (birth, death, coronation, etc.).\
+        The goal of the analysis will be to explore whether a relationship\
+    exists between emperor birth year and emperor lifespan.\
+    data source: https://en.wikipedia.org/wiki/Holy_Roman_Emperor\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # load some data on Holy Roman Emperors
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 url\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 "https://raw.githubusercontent.com/e99n09/R-notes/master/data/hre.csv"\cf2 \strokec2 \
+\cf8 \strokec8 r\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 requests
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 get\cf2 \strokec2 (\cf8 \strokec8 url\cf2 \strokec2 )\
+\cf8 \strokec8 fp\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 "hre.csv"\cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 with
+\f0\b0 \cf2 \strokec2  
+\f2\b \cf9 \strokec9 open
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 fp\cf2 \strokec2 , \cf5 \strokec5 "wb"\cf2 \strokec2 ) 
+\f2\b \cf6 \strokec6 as
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 f\cf2 \strokec2 :\
+    \cf8 \strokec8 f
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 write\cf2 \strokec2 (\cf8 \strokec8 r
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 text
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 encode\cf2 \strokec2 (\cf5 \strokec5 "UTF-8"\cf2 \strokec2 ))\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 hre\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 pd
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 read_csv\cf2 \strokec2 (\cf8 \strokec8 fp\cf2 \strokec2 )\
+\
+\cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 head\cf2 \strokec2 ()\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """\
+   Ix      Dynasty        Name        Birth             Death Election 1\
+0 NaN  Carolingian   Charles I  2 April 742    28 January 814        NaN\
+1 NaN  Carolingian     Louis I          778       20 June 840        NaN\
+2 NaN  Carolingian   Lothair I          795  29 September 855        NaN\
+3 NaN  Carolingian    Louis II          825     12 August 875        NaN\
+4 NaN  Carolingian  Charles II  13 June 823     6 October 877        NaN\
+\
+  Election 2      Coronation 1   Coronation 2 Ceased to be Emperor\
+0        NaN   25 December 800            NaN       28 January 814\
+1        NaN  11 September 813  5 October 816          20 June 840\
+2        NaN       5 April 823            NaN     29 September 855\
+3        NaN        Easter 850     18 May 872        12 August 875\
+4        NaN   29 December 875            NaN        6 October 877\
+\
+  Descent from whom 1 Descent how 1 Descent from whom 2 Descent how 2\
+0                 NaN           NaN                 NaN           NaN\
+1           Charles I           son                 NaN           NaN\
+2             Louis I           son                 NaN           NaN\
+3           Lothair I           son                 NaN           NaN\
+4             Louis I           son                 NaN           NaN\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # clean the Birth and Death columns
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 re\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # module for regular expressions
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 rx\cf2 \strokec2  
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 re
+\f2\b \cf6 \strokec6 .\cf9 \strokec9 compile
+\f0\b0 \cf2 \strokec2 (\cf5 \strokec5 r'\\d+$'\cf2 \strokec2 )  
+\f1\i \cf4 \strokec4 # match trailing digits
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ This function applies the regular expression to an input column (here Birth,\
+    Death), flattens the resulting list, converts it to a Series object, and\
+    finally converts the type of the Series object from string to integer. For\
+    more information into what different parts of the code do, see:\
+      - https://docs.python.org/2/howto/regex.html\
+      - http://stackoverflow.com/questions/11860476/how-to-unlist-a-python-list\
+      - http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html\
+"""\cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 def
+\f0\b0 \cf2 \strokec2  
+\f2\b \cf11 \strokec11 extractYear
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 v\cf2 \strokec2 ):\
+    
+\f2\b \cf6 \strokec6 return
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 pd
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 Series\cf2 \strokec2 (
+\f2\b \cf9 \strokec9 reduce
+\f0\b0 \cf2 \strokec2 (
+\f2\b \cf6 \strokec6 lambda
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 x\cf2 \strokec2 , \cf8 \strokec8 y\cf2 \strokec2 : \cf8 \strokec8 x\cf2 \strokec2  
+\f2\b \cf6 \strokec6 +
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 y\cf2 \strokec2 , 
+\f2\b \cf9 \strokec9 map
+\f0\b0 \cf2 \strokec2 (\cf8 \strokec8 rx
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 findall\cf2 \strokec2 , \cf8 \strokec8 v\cf2 \strokec2 ), []))
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 astype\cf2 \strokec2 (
+\f2\b \cf9 \strokec9 int
+\f0\b0 \cf2 \strokec2 ))\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 hre\cf2 \strokec2 [\cf5 \strokec5 "BirthY"\cf2 \strokec2 ] 
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 extractYear\cf2 \strokec2 (\cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 Birth\cf2 \strokec2 )\
+\cf8 \strokec8 hre\cf2 \strokec2 [\cf5 \strokec5 "DeathY"\cf2 \strokec2 ] 
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 extractYear\cf2 \strokec2 (\cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 Death\cf2 \strokec2 )\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # make a column telling estimated age
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 hre\cf2 \strokec2 [\cf5 \strokec5 "EstAge"\cf2 \strokec2 ] 
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 DeathY
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 astype\cf2 \strokec2 (
+\f2\b \cf9 \strokec9 int
+\f0\b0 \cf2 \strokec2 ) 
+\f2\b \cf6 \strokec6 -
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 BirthY
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 astype\cf2 \strokec2 (
+\f2\b \cf9 \strokec9 int
+\f0\b0 \cf2 \strokec2 )\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # simple scatterplot, no trend line, color represents dynasty
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 sns
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 lmplot\cf2 \strokec2 (\cf5 \strokec5 "BirthY"\cf2 \strokec2 , \cf5 \strokec5 "EstAge"\cf2 \strokec2 , \cf8 \strokec8 data
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf8 \strokec8 hre\cf2 \strokec2 , \cf8 \strokec8 hue
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf5 \strokec5 "Dynasty"\cf2 \strokec2 , \cf8 \strokec8 fit_reg
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf12 \strokec12 False\cf2 \strokec2 );\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # use scipy to run a linear regression
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf6 \strokec6 from
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 scipy\cf2 \strokec2  
+\f2\b \cf6 \strokec6 import
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 stats\cf2 \strokec2 \
+(\cf8 \strokec8 slope\cf2 \strokec2 , \cf8 \strokec8 intercept\cf2 \strokec2 , \cf8 \strokec8 rval\cf2 \strokec2 , \cf8 \strokec8 pval\cf2 \strokec2 , \cf8 \strokec8 stderr\cf2 \strokec2 ) 
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 stats
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 linregress\cf2 \strokec2 (\cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 BirthY\cf2 \strokec2 , \cf8 \strokec8 hre
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 EstAge\cf2 \strokec2 )\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # code source: http://wiki.scipy.org/Cookbook/LinearRegression
+\f0\i0 \cf2 \strokec2 \
+\
+
+\f1\i \cf4 \strokec4 # check the slope
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 slope\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # 0.0057672618839073328
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # check the R^2 value:
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 rval
+\f2\b \cf6 \strokec6 **
+\f0\b0 \cf10 \strokec10 2\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # 0.020363950027333586
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # check the p-value
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 pval\cf2 \strokec2   
+\f1\i \cf4 \strokec4 # 0.34971812581498452
+\f0\i0 \cf2 \strokec2 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\i \cf4 \strokec4 # use seaborn to make a scatterplot and plot the linear regression trend line
+\f0\i0 \cf2 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 sns
+\f2\b \cf6 \strokec6 .
+\f0\b0 \cf8 \strokec8 lmplot\cf2 \strokec2 (\cf5 \strokec5 "BirthY"\cf2 \strokec2 , \cf5 \strokec5 "EstAge"\cf2 \strokec2 , \cf8 \strokec8 data
+\f2\b \cf6 \strokec6 =
+\f0\b0 \cf8 \strokec8 hre\cf2 \strokec2 );\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf5 \strokec5 """ For more information on seaborn, see\
+      - http://web.stanford.edu/~mwaskom/software/seaborn/\
+      - https://github.com/mwaskom/seaborn\
+    For more information on SciPy, see\
+      - http://wiki.scipy.org/SciPy\
+      - http://wiki.scipy.org/Cookbook/\
+    To see a version of the Holy Roman Emperors analysis using R, see\
+      - http://github.com/e99n09/R-notes/blob/master/holy_roman_emperors_dates.R\
+"""\cf2 \strokec2 \
+}

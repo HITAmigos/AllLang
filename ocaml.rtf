@@ -1,0 +1,926 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf740
+{\fonttbl\f0\fmodern\fcharset0 Courier-Oblique;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red135\green136\blue117;\red234\green234\blue234;\red26\green26\blue26;
+\red0\green0\blue0;\red38\green38\blue38;\red17\green137\blue135;\red53\green65\blue117;\red135\green135\blue135;
+\red195\green0\blue49;\red67\green67\blue67;}
+{\*\expandedcolortbl;;\cssrgb\c60000\c60000\c53333;\cssrgb\c93333\c93333\c93333;\cssrgb\c13333\c13333\c13333;
+\cssrgb\c0\c0\c0;\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c60000\c60000;\cssrgb\c26667\c33333\c53333;\cssrgb\c60000\c60000\c60000;
+\cssrgb\c81569\c6275\c25098;\cssrgb\c33333\c33333\c33333;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i\fs37\fsmilli18667 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 (*** Comments ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Comments are enclosed in (* and *). It's fine to nest comments. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* There are no single-line comments. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+
+\f0\i \cf2 \strokec2 (*** Variables and functions ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Expressions can be separated by a double semicolon symbol, ";;".\
+   In many cases it's redundant, but in this tutorial we use it after\
+   every expression for easy pasting into the interpreter shell.\
+   Unnecessary use of expression separators in source code files\
+   is often considered to be a bad style. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Variable and function declarations use "let" keyword. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  = \cf7 \strokec7 10\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* OCaml allows single quote characters in identifiers.\
+   Single quote doesn't have a special meaning in this case, it's often used\
+   in cases when in other languages one would use names like "foo_tmp". *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 foo\cf4 \strokec4  = \cf7 \strokec7 1\cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 foo'\cf4 \strokec4  = \cf6 \strokec6 foo\cf4 \strokec4  * \cf7 \strokec7 2\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Since OCaml compiler infers types automatically, you normally don't need to\
+   specify argument types explicitly. However, you can do it if\
+   you want or need to. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 inc_int\cf4 \strokec4  (\cf6 \strokec6 x\cf4 \strokec4 : 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4 ) : 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  = \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* One of the cases when explicit type annotations may be needed is\
+   resolving ambiguity between two record types that have fields with\
+   the same name. The alternative is to encapsulate those types in\
+   modules, but both topics are a bit out of scope of this\
+   tutorial. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* You need to mark recursive function definitions as such with "rec" keyword. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 rec
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 factorial\cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 if
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  = \cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 then
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4 \
+    
+\f2\b \cf5 \strokec5 else
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 n\cf4 \strokec4  * \cf6 \strokec6 factorial\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4 -\cf7 \strokec7 1\cf4 \strokec4 )\
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Function application usually doesn't need parentheses around arguments *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 fact_5\cf4 \strokec4  = \cf6 \strokec6 factorial\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* ...unless the argument is an expression. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 fact_4\cf4 \strokec4  = \cf6 \strokec6 factorial\cf4 \strokec4  (\cf7 \strokec7 5\cf4 \strokec4 -\cf7 \strokec7 1\cf4 \strokec4 ) ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 sqr2\cf4 \strokec4  = \cf6 \strokec6 sqr\cf4 \strokec4  
+\f2\b \cf5 \strokec5 (-
+\f1\b0 \cf7 \strokec7 2\cf4 \strokec4 ) ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Every function must have at least one argument.\
+   Since some functions naturally don't take any arguments, there's\
+   "unit" type for it that has the only one value written as "()" *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 print_hello\cf4 \strokec4  \cf9 \strokec9 ()\cf4 \strokec4  = \cf6 \strokec6 print_endline\cf4 \strokec4  \cf10 \strokec10 "hello world"\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Note that you must specify "()" as argument when calling it. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 print_hello\cf4 \strokec4  \cf9 \strokec9 ()\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Calling a function with insufficient number of arguments\
+   does not cause an error, it produces a new function. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 make_inc\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  \cf6 \strokec6 y\cf4 \strokec4  = \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 y\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* make_inc is int -> int -> int *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 inc_2\cf4 \strokec4  = \cf6 \strokec6 make_inc\cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  ;;   
+\f0\i \cf2 \strokec2 (* inc_2 is int -> int *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 inc_2\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Evaluates to 5 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can use multiple expressions in function body.\
+   The last expression becomes the return value. All other\
+   expressions must be of the "unit" type.\
+   This is useful when writing in imperative style, the simplest\
+   form of it is inserting a debug print. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 print_and_return\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  =\
+    \cf6 \strokec6 print_endline\cf4 \strokec4  (\cf6 \strokec6 string_of_int\cf4 \strokec4  \cf6 \strokec6 x
+\f2\b \cf5 \strokec5 );
+\f1\b0 \cf4 \strokec4 \
+    \cf6 \strokec6 x\cf4 \strokec4 \
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Since OCaml is a functional language, it lacks "procedures".\
+   Every function must return something. So functions that\
+   do not really return anything and are called solely for their\
+   side effects, like print_endline, return value of "unit" type. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+
+\f0\i \cf2 \strokec2 (* Definitions can be chained with "let ... in" construct.\
+   This is roughly the same to assigning values to multiple\
+   variables before using them in expressions in imperative\
+   languages. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  = \cf7 \strokec7 10\cf4 \strokec4  
+\f2\b \cf5 \strokec5 in
+\f1\b0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 y\cf4 \strokec4  = \cf7 \strokec7 20\cf4 \strokec4  
+\f2\b \cf5 \strokec5 in
+\f1\b0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 y\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Alternatively you can use "let ... and ... in" construct.\
+   This is especially useful for mutually recursive functions,\
+   with ordinary "let .. in" the compiler will complain about\
+   unbound values. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 rec
+\f1\b0 \cf4 \strokec4 \
+  \cf6 \strokec6 is_even\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 function
+\f1\b0 \cf4 \strokec4 \
+  | \cf7 \strokec7 0\cf4 \strokec4  -> \cf9 \strokec9 true\cf4 \strokec4 \
+  | \cf6 \strokec6 n\cf4 \strokec4  -> \cf6 \strokec6 is_odd\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4 -\cf7 \strokec7 1\cf4 \strokec4 )\
+
+\f2\b \cf5 \strokec5 and
+\f1\b0 \cf4 \strokec4 \
+  \cf6 \strokec6 is_odd\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 function
+\f1\b0 \cf4 \strokec4 \
+  | \cf7 \strokec7 0\cf4 \strokec4  -> \cf9 \strokec9 false\cf4 \strokec4 \
+  | \cf6 \strokec6 n\cf4 \strokec4  -> \cf6 \strokec6 is_even\cf4 \strokec4  (\cf6 \strokec6 n\cf4 \strokec4 -\cf7 \strokec7 1\cf4 \strokec4 )\
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Anonymous functions use the following syntax: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_lambda\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  -> \cf6 \strokec6 x\cf4 \strokec4  * \cf6 \strokec6 x\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (*** Operators ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* There is little distintion between operators and functions.\
+   Every operator can be called as a function. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 (+)
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* Same as 3 + 4 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* There's a number of built-in operators. One unusual feature is\
+   that OCaml doesn't just refrain from any implicit conversions\
+   between integers and floats, it also uses different operators\
+   for floats. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 12\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Integer addition. *)
+\f1\i0 \cf4 \strokec4 \
+\cf7 \strokec7 12\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +.
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Floating point addition. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\cf7 \strokec7 12\cf4 \strokec4  
+\f2\b \cf5 \strokec5 /
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Integer division. *)
+\f1\i0 \cf4 \strokec4 \
+\cf7 \strokec7 12\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 /.
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Floating point division. *)
+\f1\i0 \cf4 \strokec4 \
+\cf7 \strokec7 5\cf4 \strokec4  
+\f2\b \cf5 \strokec5 mod
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Remainder. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Unary minus is a notable exception, it's polymorphic.\
+   However, it also has "pure" integer and float forms. *)
+\f1\i0 \cf4 \strokec4 \
+- \cf7 \strokec7 3\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Polymorphic, integer *)
+\f1\i0 \cf4 \strokec4 \
+- \cf7 \strokec7 4\cf4 \strokec4 .\cf7 \strokec7 5\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Polymorphic, float *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 ~-
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* Integer only *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 ~-
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 4\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* Type error *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 ~-.
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 4\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* Float only *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can define your own operators or redefine existing ones.\
+   Unlike SML or Haskell, only selected symbols can be used\
+   for operator names and first symbol defines associativity\
+   and precedence rules. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 (+)
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 b\cf4 \strokec4  = \cf6 \strokec6 a\cf4 \strokec4  - \cf6 \strokec6 b\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Surprise maintenance programmers. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* More useful: a reciprocal operator for floats.\
+   Unary operators must start with "~". *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 (~/)
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  = \cf7 \strokec7 1\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  
+\f2\b \cf5 \strokec5 /.
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 ~/
+\f1\b0 \cf7 \strokec7 4\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4  
+\f0\i \cf2 \strokec2 (* = 0.25 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (*** Built-in data structures ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Lists are enclosed in square brackets, items are separated by\
+   semicolons. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_list\cf4 \strokec4  = [\cf7 \strokec7 1\cf4 \strokec4 ; \cf7 \strokec7 2\cf4 \strokec4 ; \cf7 \strokec7 3\cf4 \strokec4 ] ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Tuples are (optionally) enclosed in parentheses, items are separated\
+   by commas. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 first_tuple\cf4 \strokec4  = \cf7 \strokec7 3\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Has type "int * int". *)
+\f1\i0 \cf4 \strokec4 \
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 second_tuple\cf4 \strokec4  = (\cf7 \strokec7 4\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 ) ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Corollary: if you try to separate list items by commas, you get a list\
+   with a tuple inside, probably not what you want. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 bad_list\cf4 \strokec4  = [\cf7 \strokec7 1\cf4 \strokec4 , \cf7 \strokec7 2\cf4 \strokec4 ] ;; 
+\f0\i \cf2 \strokec2 (* Becomes [(1, 2)] *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can access individual list items with the List.nth function. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 nth\cf4 \strokec4  \cf6 \strokec6 my_list\cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* There are higher-order functions for lists such as map and filter. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 map\cf4 \strokec4  (
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  -> \cf6 \strokec6 x\cf4 \strokec4  * \cf7 \strokec7 2\cf4 \strokec4 ) [\cf7 \strokec7 1\cf4 \strokec4 ; \cf7 \strokec7 2\cf4 \strokec4 ; \cf7 \strokec7 3\cf4 \strokec4 ] ;;\
+\cf11 \strokec11 List\cf4 \strokec4 .\cf6 \strokec6 filter\cf4 \strokec4  (
+\f2\b \cf5 \strokec5 fun
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  -> \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 mod
+\f1\b0 \cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  = \cf7 \strokec7 0\cf4 \strokec4 ) [\cf7 \strokec7 1\cf4 \strokec4 ; \cf7 \strokec7 2\cf4 \strokec4 ; \cf7 \strokec7 3\cf4 \strokec4 ; \cf7 \strokec7 4\cf4 \strokec4 ] ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can add an item to the beginning of a list with the "::" constructor\
+   often referred to as "cons". *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 1\cf4 \strokec4  :: [\cf7 \strokec7 2\cf4 \strokec4 ; \cf7 \strokec7 3\cf4 \strokec4 ] ;; 
+\f0\i \cf2 \strokec2 (* Gives [1; 2; 3] *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Arrays are enclosed in [| |] *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_array\cf4 \strokec4  = [| \cf7 \strokec7 1\cf4 \strokec4 ; \cf7 \strokec7 2\cf4 \strokec4 ; \cf7 \strokec7 3\cf4 \strokec4  |] ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* You can access array items like this: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 my_array
+\f2\b \cf5 \strokec5 .(
+\f1\b0 \cf7 \strokec7 0\cf4 \strokec4 ) ;;\
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (*** Strings and characters ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Use double quotes for string literals. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_str\cf4 \strokec4  = \cf10 \strokec10 "Hello world"\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Use single quotes for character literals. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_char\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a'\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Single and double quotes are not interchangeable. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 bad_str\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 syntax\cf4 \strokec4  \cf6 \strokec6 error'\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* Syntax error. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* This will give you a single character string, not a character. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 single_char_str\cf4 \strokec4  = \cf10 \strokec10 "w"\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Strings can be concatenated with the "^" operator. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 some_str\cf4 \strokec4  = \cf10 \strokec10 "hello"\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 "world"\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Strings are not arrays of characters.\
+   You can't mix characters and strings in expressions.\
+   You can convert a character to a string with "String.make 1 my_char".\
+   There are more convenient functions for this purpose in additional\
+   libraries such as Core.Std that may not be installed and/or loaded\
+   by default. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 ocaml\cf4 \strokec4  = (\cf11 \strokec11 String\cf4 \strokec4 .\cf6 \strokec6 make\cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  
+\f2\b \cf5 \strokec5 '\cf8 \strokec8 O'
+\f1\b0 \cf4 \strokec4 ) 
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 "Caml"\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* There is a printf function. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf11 \strokec11 Printf\cf4 \strokec4 .\cf6 \strokec6 printf\cf4 \strokec4  \cf10 \strokec10 "%d %s"\cf4 \strokec4  \cf7 \strokec7 99\cf4 \strokec4  \cf10 \strokec10 "bottles of beer"\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Unformatted read and write functions are there too. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 print_string\cf4 \strokec4  \cf10 \strokec10 "hello world\\n"\cf4 \strokec4  ;;\
+\cf6 \strokec6 print_endline\cf4 \strokec4  \cf10 \strokec10 "hello world"\cf4 \strokec4  ;;\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 line\cf4 \strokec4  = \cf6 \strokec6 read_line\cf4 \strokec4  \cf9 \strokec9 ()\cf4 \strokec4  ;;\
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (*** User-defined data types ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* You can define types with the "type some_type =" construct. Like in this\
+   useless type alias: *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_int\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* More interesting types include so called type constructors.\
+   Constructors must start with a capital letter. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 ml\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 OCaml
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 StandardML
+\f1\b0 \cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 lang\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 OCaml
+\f1\b0 \cf4 \strokec4  ;;  
+\f0\i \cf2 \strokec2 (* Has type "ml". *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Type constructors don't need to be empty. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_number\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 PlusInfinity
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 MinusInfinity
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 Real
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 float
+\f1\b0 \cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 r0\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Real
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 (-
+\f1\b0 \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 4\cf4 \strokec4 ) ;; 
+\f0\i \cf2 \strokec2 (* Has type "my_number". *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Can be used to implement polymorphic arithmetics. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 number\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Int
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 Float
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 float
+\f1\b0 \cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Point on a plane, essentially a type-constrained tuple *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 point2d\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Point
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 float
+\f1\b0 \cf4 \strokec4  * 
+\f2\b \cf8 \strokec8 float
+\f1\b0 \cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_point\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Point
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 0\cf4 \strokec4 ) ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Types can be parameterized, like in this type for "list of lists\
+   of anything". 'a can be substituted with any type. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 list_of_lists\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 '
+\f1\b0 \cf6 \strokec6 a\cf4 \strokec4  
+\f2\b \cf8 \strokec8 list
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 list
+\f1\b0 \cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 int_list_list\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 list_of_lists\cf4 \strokec4  ;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Types can also be recursive. Like in this type analogous to\
+   built-in list of integers. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 my_int_list\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 EmptyList
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 IntList
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  * \cf6 \strokec6 my_int_list\cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 l\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 IntList
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 1\cf4 \strokec4 , 
+\f2\b \cf8 \strokec8 EmptyList
+\f1\b0 \cf4 \strokec4 ) ;;\
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (*** Pattern matching ***)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Pattern matching is somewhat similar to switch statement in imperative\
+   languages, but offers a lot more expressive power.\
+\
+   Even though it may look complicated, it really boils down to matching\
+   an argument against an exact value, a predicate, or a type constructor.\
+   The type system is what makes it so powerful. *)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (** Matching exact values.  **)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_zero\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 match
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 with
+\f1\b0 \cf4 \strokec4 \
+    | \cf7 \strokec7 0\cf4 \strokec4  -> \cf9 \strokec9 true\cf4 \strokec4 \
+    | _ -> \cf9 \strokec9 false\cf4 \strokec4   
+\f0\i \cf2 \strokec2 (* The "_" pattern means "anything else". *)
+\f1\i0 \cf4 \strokec4 \
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Alternatively, you can use the "function" keyword. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 is_one\cf4 \strokec4  = 
+\f2\b \cf5 \strokec5 function
+\f1\b0 \cf4 \strokec4 \
+| \cf7 \strokec7 1\cf4 \strokec4  -> \cf9 \strokec9 true\cf4 \strokec4 \
+| _ -> \cf9 \strokec9 false\cf4 \strokec4 \
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Matching predicates, aka "guarded pattern matching". *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 abs\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 match
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 with
+\f1\b0 \cf4 \strokec4 \
+    | \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 when
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  < \cf7 \strokec7 0\cf4 \strokec4  -> -\cf6 \strokec6 x\cf4 \strokec4 \
+    | _ -> \cf6 \strokec6 x\cf4 \strokec4 \
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 abs\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4  ;; 
+\f0\i \cf2 \strokec2 (* 5 *)
+\f1\i0 \cf4 \strokec4 \
+\cf6 \strokec6 abs\cf4 \strokec4  
+\f2\b \cf5 \strokec5 (-
+\f1\b0 \cf7 \strokec7 5\cf4 \strokec4 ) 
+\f0\i \cf2 \strokec2 (* 5 again *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (** Matching type constructors **)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 animal\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Dog
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 string
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 Cat
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 string
+\f1\b0 \cf4 \strokec4  ;;\
+\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 say\cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 match
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 with
+\f1\b0 \cf4 \strokec4 \
+    | 
+\f2\b \cf8 \strokec8 Dog
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  -> \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 " says woof"\cf4 \strokec4 \
+    | 
+\f2\b \cf8 \strokec8 Cat
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 x\cf4 \strokec4  -> \cf6 \strokec6 x\cf4 \strokec4  
+\f2\b \cf5 \strokec5 ^
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 " says meow"\cf4 \strokec4 \
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 say\cf4 \strokec4  (
+\f2\b \cf8 \strokec8 Cat
+\f1\b0 \cf4 \strokec4  \cf10 \strokec10 "Fluffy"\cf4 \strokec4 ) ;; 
+\f0\i \cf2 \strokec2 (* "Fluffy says meow". *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (** Traversing data structures with pattern matching **)
+\f1\i0 \cf4 \strokec4 \
+\
+
+\f0\i \cf2 \strokec2 (* Recursive types can be traversed with pattern matching easily.\
+   Let's see how we can traverse a data structure of the built-in list type.\
+   Even though the built-in cons ("::") looks like an infix operator,\
+   it's actually a type constructor and can be matched like any other. *)
+\f1\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 rec
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 sum_list\cf4 \strokec4  \cf6 \strokec6 l\cf4 \strokec4  =\
+    
+\f2\b \cf5 \strokec5 match
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 l\cf4 \strokec4  
+\f2\b \cf5 \strokec5 with
+\f1\b0 \cf4 \strokec4 \
+    | \cf9 \strokec9 []\cf4 \strokec4  -> \cf7 \strokec7 0\cf4 \strokec4 \
+    | \cf6 \strokec6 head\cf4 \strokec4  :: \cf6 \strokec6 tail\cf4 \strokec4  -> \cf6 \strokec6 head\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  (\cf6 \strokec6 sum_list\cf4 \strokec4  \cf6 \strokec6 tail\cf4 \strokec4 )\
+;;\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 sum_list\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ; \cf7 \strokec7 2\cf4 \strokec4 ; \cf7 \strokec7 3\cf4 \strokec4 ] ;; 
+\f0\i \cf2 \strokec2 (* Evaluates to 6 *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\i \cf2 \strokec2 (* Built-in syntax for cons obscures the structure a bit, so we'll make\
+   our own list for demonstration. *)
+\f1\i0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b \cf5 \strokec5 type
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 int_list\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Nil
+\f1\b0 \cf4 \strokec4  | 
+\f2\b \cf8 \strokec8 Cons
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 of
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf8 \strokec8 int
+\f1\b0 \cf4 \strokec4  * \cf6 \strokec6 int_list\cf4 \strokec4  ;;\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  
+\f2\b \cf5 \strokec5 rec
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 sum_int_list\cf4 \strokec4  \cf6 \strokec6 l\cf4 \strokec4  =\
+  
+\f2\b \cf5 \strokec5 match
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 l\cf4 \strokec4  
+\f2\b \cf5 \strokec5 with
+\f1\b0 \cf4 \strokec4 \
+      | 
+\f2\b \cf8 \strokec8 Nil
+\f1\b0 \cf4 \strokec4  -> \cf7 \strokec7 0\cf4 \strokec4 \
+      | 
+\f2\b \cf8 \strokec8 Cons
+\f1\b0 \cf4 \strokec4  (\cf6 \strokec6 head\cf4 \strokec4 , \cf6 \strokec6 tail\cf4 \strokec4 ) -> \cf6 \strokec6 head\cf4 \strokec4  
+\f2\b \cf5 \strokec5 +
+\f1\b0 \cf4 \strokec4  (\cf6 \strokec6 sum_int_list\cf4 \strokec4  \cf6 \strokec6 tail\cf4 \strokec4 )\
+;;\
+\
+
+\f2\b \cf5 \strokec5 let
+\f1\b0 \cf4 \strokec4  \cf6 \strokec6 t\cf4 \strokec4  = 
+\f2\b \cf8 \strokec8 Cons
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 1\cf4 \strokec4 , 
+\f2\b \cf8 \strokec8 Cons
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 , 
+\f2\b \cf8 \strokec8 Cons
+\f1\b0 \cf4 \strokec4  (\cf7 \strokec7 3\cf4 \strokec4 , 
+\f2\b \cf8 \strokec8 Nil\cf5 \strokec5 )))
+\f1\b0 \cf4 \strokec4  ;;\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf6 \strokec6 sum_int_list\cf4 \strokec4  \cf6 \strokec6 t\cf4 \strokec4  ;;\
+}

@@ -1,0 +1,673 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf740
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red135\green136\blue117;\red234\green234\blue234;\red26\green26\blue26;
+\red0\green0\blue0;\red67\green67\blue67;\red17\green137\blue135;\red53\green65\blue117;\red38\green38\blue38;
+\red195\green0\blue49;\red133\green0\blue2;}
+{\*\expandedcolortbl;;\cssrgb\c60000\c60000\c53333;\cssrgb\c93333\c93333\c93333;\cssrgb\c13333\c13333\c13333;
+\cssrgb\c0\c0\c0;\cssrgb\c33333\c33333\c33333;\cssrgb\c0\c60000\c60000;\cssrgb\c26667\c33333\c53333;\cssrgb\c20000\c20000\c20000;
+\cssrgb\c81569\c6275\c25098;\cssrgb\c60000\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\fs37\fsmilli18667 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --\cf4 \strokec4 \
+\cf2 \strokec2 -- 1. Primitive datatypes that corresponds to their Javascript\cf4 \strokec4 \
+\cf2 \strokec2 -- equivalents at runtime.\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 import
+\f0\b0 \cf4 \strokec4  \cf6 \strokec6 Prelude\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Numbers\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 1.0\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 7.2
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf7 \strokec7 5.5\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Number
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- 40.6\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Ints\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 1\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf7 \strokec7 5\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- 11\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Types are inferred, so the following works fine\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 9.0
+\f1\b \cf5 \strokec5 /
+\f0\b0 \cf7 \strokec7 2.5\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 4.4\cf4 \strokec4  \cf2 \strokec2 -- 8.0\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- But Ints and Numbers don't mix, so the following won't\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 5
+\f1\b \cf5 \strokec5 /
+\f0\b0 \cf7 \strokec7 2\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2.5\cf4 \strokec4  \cf2 \strokec2 -- Expression 2.5 does not have type Int\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Hexadecimal literals\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 0xff\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  \cf2 \strokec2 -- 256\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Unary negation\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 6\cf4 \strokec4  
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 -
+\f0\b0 \cf7 \strokec7 3\cf4 \strokec4  \cf2 \strokec2 -- -18\cf4 \strokec4 \
+\cf7 \strokec7 6\cf4 \strokec4  
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 negate\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  \cf2 \strokec2 -- -18\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Modulus, from purescript-math (Math)\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 3.0\cf4 \strokec4  
+\f1\b \cf5 \strokec5 %
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2.0\cf4 \strokec4  \cf2 \strokec2 -- 1.0\cf4 \strokec4 \
+\cf7 \strokec7 4.0\cf4 \strokec4  
+\f1\b \cf5 \strokec5 %
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2.0\cf4 \strokec4  \cf2 \strokec2 -- 0.0\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Inspect the type of an expression in psci\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf9 \strokec9 t\cf4 \strokec4  \cf7 \strokec7 9.5
+\f1\b \cf5 \strokec5 /
+\f0\b0 \cf7 \strokec7 2.5\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 4.4\cf4 \strokec4  \cf2 \strokec2 -- Prim.Number\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Booleans\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 true\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Boolean
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- true\cf4 \strokec4 \
+\cf9 \strokec9 false\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Boolean
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- false\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Negation\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 not\cf4 \strokec4  \cf9 \strokec9 true\cf4 \strokec4  \cf2 \strokec2 -- false\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 23\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ==
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 23\cf4 \strokec4  \cf2 \strokec2 -- true\cf4 \strokec4 \
+\cf7 \strokec7 1\cf4 \strokec4  
+\f1\b \cf5 \strokec5 /=
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4  \cf2 \strokec2 -- true\cf4 \strokec4 \
+\cf7 \strokec7 1\cf4 \strokec4  
+\f1\b \cf5 \strokec5 >=
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4  \cf2 \strokec2 -- false\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Comparisons < <= > >=\cf4 \strokec4 \
+\cf2 \strokec2 -- are defined in terms of compare\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 compare\cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  \cf2 \strokec2 -- LT\cf4 \strokec4 \
+\cf9 \strokec9 compare\cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  \cf2 \strokec2 -- EQ\cf4 \strokec4 \
+\cf9 \strokec9 compare\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  \cf2 \strokec2 -- GT\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Conjunction and Disjunction\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 true\cf4 \strokec4  
+\f1\b \cf5 \strokec5 &&
+\f0\b0 \cf4 \strokec4  (\cf7 \strokec7 9\cf4 \strokec4  
+\f1\b \cf5 \strokec5 >=
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 19\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ||
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  
+\f1\b \cf5 \strokec5 <
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4 ) \cf2 \strokec2 -- true\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Strings\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf10 \strokec10 "Hellow"\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 String
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- "Hellow"\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Multiline string without newlines, to run in psci use the --multi-line-mode flag\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf10 \strokec10 "Hellow\\\
+\\orld"\cf4 \strokec4  \cf2 \strokec2 -- "Helloworld"\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Multiline string with newlines\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf10 \strokec10 """Hello\
+world"""\cf4 \strokec4  \cf2 \strokec2 -- "Hello\\nworld"\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Concatenate\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf10 \strokec10 "such "\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ++
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "amaze"\cf4 \strokec4  \cf2 \strokec2 -- "such amaze"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 --\cf4 \strokec4 \
+\cf2 \strokec2 -- 2. Arrays are Javascript arrays, but must be homogeneous\cf4 \strokec4 \
+\
+[\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ,\cf7 \strokec7 8\cf4 \strokec4 ] 
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Array
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Number
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- [1,1,2,3,5,8]\cf4 \strokec4 \
+[\cf9 \strokec9 true\cf4 \strokec4 , \cf9 \strokec9 true\cf4 \strokec4 , \cf9 \strokec9 false\cf4 \strokec4 ] 
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Array
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Boolean
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- [true,true,false]\cf4 \strokec4 \
+\cf2 \strokec2 -- [1,2, true, "false"] won't work\cf4 \strokec4 \
+\cf2 \strokec2 -- `Cannot unify Prim.Int with Prim.Boolean`\cf4 \strokec4 \
+\cf2 \strokec2 -- Cons (prepend)\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 1\cf4 \strokec4  
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  [\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ] \cf2 \strokec2 -- [1,2,4,3]\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Requires purescript-arrays (Data.Array)\cf4 \strokec4 \
+\cf2 \strokec2 -- and purescript-maybe (Data.Maybe)\cf4 \strokec4 \
+\
+\cf2 \strokec2 -- Safe access return Maybe a\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 head\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ] \cf2 \strokec2 -- Just (1)\cf4 \strokec4 \
+\cf9 \strokec9 tail\cf4 \strokec4  [\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 1\cf4 \strokec4 ] \cf2 \strokec2 -- Just ([2,1])\cf4 \strokec4 \
+\cf9 \strokec9 init\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ] \cf2 \strokec2 -- Just ([1,2])\cf4 \strokec4 \
+\cf9 \strokec9 last\cf4 \strokec4  [\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 1\cf4 \strokec4 ] \cf2 \strokec2 -- Just (1)\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Random access - indexing\cf4 \strokec4 \
+[\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ,\cf7 \strokec7 6\cf4 \strokec4 ,\cf7 \strokec7 7\cf4 \strokec4 ] 
+\f1\b \cf5 \strokec5 !!
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  \cf2 \strokec2 -- Just (5)\cf4 \strokec4 \
+\cf2 \strokec2 -- Range\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 5\cf4 \strokec4  \cf2 \strokec2 -- [1,2,3,4,5]\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 length\cf4 \strokec4  [\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ] \cf2 \strokec2 -- 3\cf4 \strokec4 \
+\cf9 \strokec9 drop\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  [\cf7 \strokec7 5\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 1\cf4 \strokec4 ] \cf2 \strokec2 -- [2,1]\cf4 \strokec4 \
+\cf9 \strokec9 take\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  [\cf7 \strokec7 5\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 1\cf4 \strokec4 ] \cf2 \strokec2 -- [5,4,3]\cf4 \strokec4 \
+\cf9 \strokec9 append\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ] [\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ,\cf7 \strokec7 6\cf4 \strokec4 ] \cf2 \strokec2 -- [1,2,3,4,5,6]\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 --\cf4 \strokec4 \
+\cf2 \strokec2 -- 3. Records are Javascript objects, with zero or more fields, which\cf4 \strokec4 \
+\cf2 \strokec2 -- can have different types.\cf4 \strokec4 \
+\cf2 \strokec2 -- In psci you have to write `let` in front of the function to get a\cf4 \strokec4 \
+\cf2 \strokec2 -- top level binding.\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 book\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \{\cf9 \strokec9 title
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "Foucault's pendulum"\cf4 \strokec4 , \cf9 \strokec9 author
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "Umberto Eco"\cf4 \strokec4 \}\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Access properties\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 book
+\f1\b \cf5 \strokec5 .
+\f0\b0 \cf9 \strokec9 title\cf4 \strokec4  \cf2 \strokec2 -- "Foucault's pendulum"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 getTitle\cf4 \strokec4  \cf9 \strokec9 b\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 b
+\f1\b \cf5 \strokec5 .
+\f0\b0 \cf9 \strokec9 title\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Works on all records with a title (but doesn't require any other field)\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 getTitle\cf4 \strokec4  \cf9 \strokec9 book\cf4 \strokec4  \cf2 \strokec2 -- "Foucault's pendulum"\cf4 \strokec4 \
+\cf9 \strokec9 getTitle\cf4 \strokec4  \{\cf9 \strokec9 title
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "Weekend in Monaco"\cf4 \strokec4 , \cf9 \strokec9 artist
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "The Rippingtons"\cf4 \strokec4 \} \cf2 \strokec2 -- "Weekend in Monaco"\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Can use underscores as shorthand\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 _.
+\f0\b0 \cf9 \strokec9 title\cf4 \strokec4  \cf9 \strokec9 book\cf4 \strokec4  \cf2 \strokec2 -- "Foucault's pendulum"\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Update a record\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 changeTitle\cf4 \strokec4  \cf9 \strokec9 b\cf4 \strokec4  \cf9 \strokec9 t\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 b\cf4 \strokec4  \{\cf9 \strokec9 title\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 t\cf4 \strokec4 \}\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 getTitle\cf4 \strokec4  (\cf9 \strokec9 changeTitle\cf4 \strokec4  \cf9 \strokec9 book\cf4 \strokec4  \cf10 \strokec10 "Ill nome della rosa"\cf4 \strokec4 ) \cf2 \strokec2 -- "Ill nome della rosa"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 --\cf4 \strokec4 \
+\cf2 \strokec2 -- 4. Functions\cf4 \strokec4 \
+\cf2 \strokec2 -- In psci's multiline mode\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 sumOfSquares\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4 \
+    \cf9 \strokec9 sumOfSquares\cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf9 \strokec9 y\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 sumOfSquares\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4  \cf2 \strokec2 -- 25\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 myMod\cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 %
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 myMod\cf4 \strokec4  \cf7 \strokec7 3.0\cf4 \strokec4  \cf7 \strokec7 2.0\cf4 \strokec4  \cf2 \strokec2 -- 1.0\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Infix application of function\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 3\cf4 \strokec4  `\cf9 \strokec9 mod\cf4 \strokec4 ` \cf7 \strokec7 2\cf4 \strokec4  \cf2 \strokec2 -- 1\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- function application has higher precedence than all other\cf4 \strokec4 \
+\cf2 \strokec2 -- operators\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 sumOfSquares\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4  
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 sumOfSquares\cf4 \strokec4  \cf7 \strokec7 4\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4  \cf2 \strokec2 -- 1025\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Conditional\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 abs'\cf4 \strokec4  \cf9 \strokec9 n\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 if
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 n
+\f1\b \cf5 \strokec5 >=
+\f0\b0 \cf7 \strokec7 0\cf4 \strokec4  
+\f1\b \cf5 \strokec5 then
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 n\cf4 \strokec4  
+\f1\b \cf5 \strokec5 else
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 -
+\f0\b0 \cf9 \strokec9 n\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 abs'\cf4 \strokec4  (
+\f1\b \cf5 \strokec5 -
+\f0\b0 \cf7 \strokec7 3\cf4 \strokec4 ) \cf2 \strokec2 -- 3\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Guarded equations\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 abs''\cf4 \strokec4  \cf9 \strokec9 n\cf4 \strokec4  
+\f1\b \cf5 \strokec5 |
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 n\cf4 \strokec4  
+\f1\b \cf5 \strokec5 >=
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4     
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 n\cf4 \strokec4 \
+            
+\f1\b \cf5 \strokec5 |
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 otherwise\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 -
+\f0\b0 \cf9 \strokec9 n\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Pattern matching\cf4 \strokec4 \
+\
+\cf2 \strokec2 -- Note the type signature, input is a list of numbers. The pattern matching\cf4 \strokec4 \
+\cf2 \strokec2 -- destructures and binds the list into parts.\cf4 \strokec4 \
+\cf2 \strokec2 -- Requires purescript-lists (Data.List)\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 first\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 forall\cf4 \strokec4  \cf9 \strokec9 a
+\f1\b \cf5 \strokec5 .
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 List
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 a\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 a\cf4 \strokec4 \
+    \cf9 \strokec9 first\cf4 \strokec4  (
+\f1\b \cf8 \strokec8 Cons
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 _
+\f0\b0 \cf4 \strokec4 ) 
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 first\cf4 \strokec4  (\cf9 \strokec9 toList\cf4 \strokec4  [\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ]) \cf2 \strokec2 -- 3\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 second\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 forall\cf4 \strokec4  \cf9 \strokec9 a
+\f1\b \cf5 \strokec5 .
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 List
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 a\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 a\cf4 \strokec4 \
+    \cf9 \strokec9 second\cf4 \strokec4  (
+\f1\b \cf8 \strokec8 Cons
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 _
+\f0\b0 \cf4 \strokec4  (
+\f1\b \cf8 \strokec8 Cons
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 _
+\f0\b0 \cf4 \strokec4 )) 
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 second\cf4 \strokec4  (\cf9 \strokec9 toList\cf4 \strokec4  [\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ]) \cf2 \strokec2 -- 4\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 sumTwo\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 List
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 List
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4 \
+    \cf9 \strokec9 sumTwo\cf4 \strokec4  (
+\f1\b \cf8 \strokec8 Cons
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  (
+\f1\b \cf8 \strokec8 Cons
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  \cf9 \strokec9 rest\cf4 \strokec4 )) 
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 rest\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 fromList\cf4 \strokec4  (\cf9 \strokec9 sumTwo\cf4 \strokec4  (\cf9 \strokec9 toList\cf4 \strokec4  [\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 4\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ,\cf7 \strokec7 6\cf4 \strokec4 ])) 
+\f1\b \cf5 \strokec5 ::
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Array
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Int
+\f0\b0 \cf4 \strokec4  \cf2 \strokec2 -- [5,4,5,6]\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- sumTwo doesn't handle when the list is empty or there's only one element in\cf4 \strokec4 \
+\cf2 \strokec2 -- which case you get an error.\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 sumTwo\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ] \cf2 \strokec2 -- Failed pattern match\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Complementing patterns to match\cf4 \strokec4 \
+\cf2 \strokec2 -- Good ol' Fibonacci\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 fib\cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4 \
+    \cf9 \strokec9 fib\cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 2\cf4 \strokec4 \
+    \cf9 \strokec9 fib\cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 fib\cf4 \strokec4  (\cf9 \strokec9 x
+\f1\b \cf5 \strokec5 -
+\f0\b0 \cf7 \strokec7 1\cf4 \strokec4 ) 
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 fib\cf4 \strokec4  (\cf9 \strokec9 x
+\f1\b \cf5 \strokec5 -
+\f0\b0 \cf7 \strokec7 2\cf4 \strokec4 )\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 fib\cf4 \strokec4  \cf7 \strokec7 10\cf4 \strokec4  \cf2 \strokec2 -- 89\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Use underscore to match any, where you don't care about the binding name\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 isZero\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 true\cf4 \strokec4 \
+    \cf9 \strokec9 isZero\cf4 \strokec4  
+\f1\b \cf5 \strokec5 _
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 false\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Pattern matching on records\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 ecoTitle\cf4 \strokec4  \{\cf9 \strokec9 author\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "Umberto Eco"\cf4 \strokec4 , \cf9 \strokec9 title\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 t\cf4 \strokec4 \} 
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Just
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 t\cf4 \strokec4 \
+    \cf9 \strokec9 ecoTitle\cf4 \strokec4  
+\f1\b \cf5 \strokec5 _
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf8 \strokec8 Nothing
+\f0\b0 \cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 ecoTitle\cf4 \strokec4  \cf9 \strokec9 book\cf4 \strokec4  \cf2 \strokec2 -- Just ("Foucault's pendulum")\cf4 \strokec4 \
+\cf9 \strokec9 ecoTitle\cf4 \strokec4  \{\cf9 \strokec9 title
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "The Quantum Thief"\cf4 \strokec4 , \cf9 \strokec9 author
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "Hannu Rajaniemi"\cf4 \strokec4 \} \cf2 \strokec2 -- Nothing\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- ecoTitle requires both field to type check:\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 ecoTitle\cf4 \strokec4  \{\cf9 \strokec9 title
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf4 \strokec4  \cf10 \strokec10 "The Quantum Thief"\cf4 \strokec4 \} \cf2 \strokec2 -- Object lacks required property "author"\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Lambda expressions\cf4 \strokec4 \
+(
+\f1\b \cf11 \strokec11 \\
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4 ) \cf7 \strokec7 3\cf4 \strokec4  \cf2 \strokec2 -- 9\cf4 \strokec4 \
+(
+\f1\b \cf11 \strokec11 \\
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf9 \strokec9 y\cf4 \strokec4 ) \cf7 \strokec7 4\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4  \cf2 \strokec2 -- 41\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 sqr\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf11 \strokec11 \\
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x
+\f1\b \cf5 \strokec5 *
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Currying\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 myAdd\cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4  \cf2 \strokec2 -- is equivalent with\cf4 \strokec4 \
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 myAdd'\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf11 \strokec11 \\
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  
+\f1\b \cf11 \strokec11 \\
+\f0\b0 \cf9 \strokec9 y\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 y\cf4 \strokec4 \
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 add3\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 myAdd\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4 \
+
+\f1\b \cf5 \strokec5 :
+\f0\b0 \cf9 \strokec9 t\cf4 \strokec4  \cf9 \strokec9 add3\cf4 \strokec4  \cf2 \strokec2 -- Prim.Int -> Prim.Int\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Forward and backward function composition\cf4 \strokec4 \
+\cf2 \strokec2 -- drop 3 followed by taking 5\cf4 \strokec4 \
+(\cf9 \strokec9 drop\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  
+\f1\b \cf5 \strokec5 >>>
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 take\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4 ) (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 20\cf4 \strokec4 ) \cf2 \strokec2 -- [4,5,6,7,8]\cf4 \strokec4 \
+\cf2 \strokec2 -- take 5 followed by dropping 3\cf4 \strokec4 \
+(\cf9 \strokec9 drop\cf4 \strokec4  \cf7 \strokec7 3\cf4 \strokec4  
+\f1\b \cf5 \strokec5 <<<
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 take\cf4 \strokec4  \cf7 \strokec7 5\cf4 \strokec4 ) (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 20\cf4 \strokec4 ) \cf2 \strokec2 -- [4,5]\cf4 \strokec4 \
+\
+\cf2 \strokec2 -- Operations using higher order functions\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b \cf5 \strokec5 let
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 even\cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 =
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  `\cf9 \strokec9 mod\cf4 \strokec4 ` \cf7 \strokec7 2\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ==
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 filter\cf4 \strokec4  \cf9 \strokec9 even\cf4 \strokec4  (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 10\cf4 \strokec4 ) \cf2 \strokec2 -- [2,4,6,8,10]\cf4 \strokec4 \
+\cf9 \strokec9 map\cf4 \strokec4  (
+\f1\b \cf11 \strokec11 \\
+\f0\b0 \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 ->
+\f0\b0 \cf4 \strokec4  \cf9 \strokec9 x\cf4 \strokec4  
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4  \cf7 \strokec7 11\cf4 \strokec4 ) (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 5\cf4 \strokec4 ) \cf2 \strokec2 -- [12,13,14,15,16]\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Requires purescript-foldable-traversable (Data.Foldable)\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 foldr\cf4 \strokec4  (
+\f1\b \cf5 \strokec5 +
+\f0\b0 \cf4 \strokec4 ) \cf7 \strokec7 0\cf4 \strokec4  (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 10\cf4 \strokec4 ) \cf2 \strokec2 -- 55\cf4 \strokec4 \
+\cf9 \strokec9 sum\cf4 \strokec4  (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 10\cf4 \strokec4 ) \cf2 \strokec2 -- 55\cf4 \strokec4 \
+\cf9 \strokec9 product\cf4 \strokec4  (\cf7 \strokec7 1
+\f1\b \cf5 \strokec5 ..
+\f0\b0 \cf7 \strokec7 10\cf4 \strokec4 ) \cf2 \strokec2 -- 3628800\cf4 \strokec4 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \strokec2 -- Testing with predicate\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf9 \strokec9 any\cf4 \strokec4  \cf9 \strokec9 even\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ] \cf2 \strokec2 -- true\cf4 \strokec4 \
+\cf9 \strokec9 all\cf4 \strokec4  \cf9 \strokec9 even\cf4 \strokec4  [\cf7 \strokec7 1\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ] \cf2 \strokec2 -- false\cf4 \strokec4 \
+}
